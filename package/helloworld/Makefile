@@ -42,18 +42,18 @@ define Package/helloworld
 	SECTION:=utils
 	CATEGORY:=Utilities
 	TITLE:=Helloworld -- prints a snarky message
-	DESCRIPTION:=\
-	If you can't figure out what this program does, \\\
-	you're probably brain-dead and need immediate \\\
-	medical attention.
+	# DESCRIPTION:=\
+	# If you can't figure out what this program does, \\\
+	# you're probably brain-dead and need immediate \\\
+	# medical attention.
 endef
 
 
 # Uncomment portion below for Kamikaze and delete DESCRIPTION variable above
-#define Package/helloworld/description
-#	If you can't figure out what this program does, you're probably
-#	brain-dead and need immediate medical attention.
-#endef
+define Package/helloworld/description
+	If you can't figure out what this program does, you're probably
+	brain-dead and need immediate medical attention.
+endef
 
 
 
