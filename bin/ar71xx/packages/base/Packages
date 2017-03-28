@@ -1,0 +1,15 @@
+Package: zlib
+Version: 1.2.11-1
+Depends: libc
+Source: package/zlib-v1.2.11
+License: ZLIB
+LicenseFiles: README
+Section: libs
+Architecture: ar71xx
+Installed-Size: 38938
+Filename: zlib_1.2.11-1_ar71xx.ipk
+Size: 39693
+MD5Sum: df81d6f08790234a38a170a738d68093
+SHA256sum: 69bc0c318849af7a9746249a402a583804cd429aab594d40bed3c210e0aeb859
+Description:  Library implementing the deflate compression method
+

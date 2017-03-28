@@ -1,0 +1,1 @@
+package-$(CONFIG_PACKAGE_zlib) += zlib-v1.2.11
