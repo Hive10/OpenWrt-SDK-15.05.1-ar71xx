@@ -1,0 +1,11 @@
+./
+./host
+./usr
+./usr/lib
+./usr/lib/libjansson.so.4.10.0
+./usr/lib/libjansson.a
+./usr/lib/libjansson.so.4
+./usr/lib/libjansson.so
+./usr/include
+./usr/include/jansson_config.h
+./usr/include/jansson.h

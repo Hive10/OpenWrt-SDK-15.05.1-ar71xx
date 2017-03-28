@@ -1,0 +1,13 @@
+Package: jansson
+Version: 2.10-1
+Depends: libc
+Source: package/jansson-v2.10
+Section: libs
+Architecture: ar71xx
+Installed-Size: 17352
+Filename: jansson_2.10-1_ar71xx.ipk
+Size: 18046
+MD5Sum: b547649d3cbc940e797c6838ff358acb
+SHA256sum: 5065eed7571fe1766e2e044490198f329dd78b5bc50f0463fc1084a6eb1fc22b
+Description:  JSON library
+

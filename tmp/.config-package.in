@@ -1,0 +1,20 @@
+menuconfig IMAGEOPT
+	bool "Image configuration"
+	default n
+source "package/*/image-config.in"
+menu "Libraries"
+
+	config PACKAGE_jansson
+		tristate "jansson..................................................... JSON library"
+		default y if DEFAULT_jansson
+		default m if ALL
+		select PACKAGE_libpthread if USE_GLIBC
+		select PACKAGE_libssp if SSP_SUPPORT
+		select PACKAGE_libc
+		select PACKAGE_librt if USE_GLIBC
+		help
+		 JSON library
+		 
+
+endmenu
+

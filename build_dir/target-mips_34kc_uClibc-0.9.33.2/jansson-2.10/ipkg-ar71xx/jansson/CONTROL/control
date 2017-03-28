@@ -1,0 +1,8 @@
+Package: jansson
+Version: 2.10-1
+Depends: libc
+Source: package/jansson-v2.10
+Section: libs
+Architecture: ar71xx
+Installed-Size: 17352
+Description:  JSON library
