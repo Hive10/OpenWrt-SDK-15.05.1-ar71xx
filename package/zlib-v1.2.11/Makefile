@@ -1,5 +1,5 @@
-# 
-# Copyright (C) 2006-2013 OpenWrt.org
+#
+# Copyright (C) 2006-2017 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -15,7 +15,7 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.zlib.net @SF/libpng
 PKG_MD5SUM:=1c9f62f0778697a09d36121ead88e08e
 
-PKG_LICENSE:=ZLIB
+PKG_LICENSE:=Zlib
 PKG_LICENSE_FILES:=README
 
 include $(INCLUDE_DIR)/package.mk
@@ -25,6 +25,24 @@ define Package/zlib
   CATEGORY:=Libraries
   TITLE:=Library implementing the deflate compression method
   URL:=http://www.zlib.net/
+endef
+
+define Package/zlib-dev
+  SECTION:=devel
+  CATEGORY:=Development
+  SUBMENU:=Libraries
+  DEPENDS:=zlib
+  TITLE:=Development files for the zlib library
+endef
+
+define Package/zlib/description
+ zlib is a lossless data-compression library.
+ This package includes the shared library.
+endef
+
+define Package/zlib-dev/description
+ zlib is a lossless data-compression library.
+ This package includes the development support files.
 endef
 
 define Build/Configure
@@ -70,3 +88,4 @@ define Package/zlib/install
 endef
 
 $(eval $(call BuildPackage,zlib))
+
