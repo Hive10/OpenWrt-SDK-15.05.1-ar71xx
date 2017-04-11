@@ -88,4 +88,3 @@ define Package/zlib/install
 endef
 
 $(eval $(call BuildPackage,zlib))
-

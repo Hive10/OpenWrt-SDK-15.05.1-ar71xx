@@ -10,10 +10,11 @@ Category: Libraries
 Title: Library implementing the deflate compression method
 Maintainer: 
 Source: zlib-1.2.11.tar.gz
-License: ZLIB
+License: Zlib
 LicenseFiles: README
 Type: ipkg
-Description: Library implementing the deflate compression method
+Description:  zlib is a lossless data-compression library.
+ This package includes the shared library.
 http://www.zlib.net/
 
 @@

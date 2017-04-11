@@ -8,12 +8,13 @@ menu "Libraries"
 		tristate "zlib................. Library implementing the deflate compression method"
 		default y if DEFAULT_zlib
 		default m if ALL
-		select PACKAGE_libssp if SSP_SUPPORT
 		select PACKAGE_libc
-		select PACKAGE_libpthread if USE_GLIBC
+		select PACKAGE_libssp if SSP_SUPPORT
 		select PACKAGE_librt if USE_GLIBC
+		select PACKAGE_libpthread if USE_GLIBC
 		help
-		 Library implementing the deflate compression method
+		 zlib is a lossless data-compression library.
+		  This package includes the shared library.
 		 http://www.zlib.net/
 		 
 
