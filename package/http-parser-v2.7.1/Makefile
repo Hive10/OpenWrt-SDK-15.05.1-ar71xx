@@ -4,16 +4,21 @@ PKG_NAME:=http-parser
 PKG_VERSION:=2.7.1
 PKG_RELEASE:=1
 
-https://github.com/nodejs/http-parser/archive/v2.7.1.tar.gz
 
-PKG_SOURCE:=v$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/nodejs/$(PKG_NAME)/archive/
-PKG_MD5SUM:=31c6fefb6208b16d19b3f990e71cb04a
+#PKG_SOURCE:=v$(PKG_VERSION).tar.gz
+#PKG_SOURCE_URL:=https://github.com/nodejs/$(PKG_NAME)/archive/
+#PKG_MD5SUM:=31c6fefb6208b16d19b3f990e71cb04a
 
 PKG_INSTALL:=1
 #PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
+
+define Build/Prepare
+	mkdir -p $(PKG_BUILD_DIR)
+	$(CP) ./src/* $(PKG_BUILD_DIR)/
+endef
+
 
 define Package/http-parser
   SECTION:=libs
@@ -27,13 +32,13 @@ TARGET_CFLAGS += $(FPIC)
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib,include}
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libhttp-parser* $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/include/* $(1)/usr/include/
+	$(CP) $(PKG_INSTALL_DIR)/usr/local/lib/libhttp_parser* $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/local/include/* $(1)/usr/include/
 endef
 
 define Package/http-parser/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libhttp-parser*so* $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/local/lib/libhttp_parser* $(1)/usr/lib/
 endef
 
 $(eval $(call BuildPackage,http-parser))
