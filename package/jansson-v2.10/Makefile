@@ -12,9 +12,9 @@ PKG_VERSION:=2.10
 PKG_RELEASE:=1
 PKG_LICENSE:=MIT
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://www.digip.org/jansson/releases/
-PKG_MD5SUM:=16a2c4e84c0a80ca61bd6e619a0f9358
+PKG_HASH:=241125a55f739cd713808c4e0089986b8c3da746da8b384952912ad659fa2f5a
 
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
@@ -50,4 +50,3 @@ define Package/jansson/install
 endef
 
 $(eval $(call BuildPackage,jansson))
-
