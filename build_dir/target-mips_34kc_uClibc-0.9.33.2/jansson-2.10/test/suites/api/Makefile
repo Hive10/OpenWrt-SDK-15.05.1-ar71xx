@@ -272,7 +272,7 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = mips-openwrt-linux-uclibc-ld
 LDFLAGS = -static  # for speed and Valgrind
 LIBOBJS = 
-LIBS = -Wl,-rpath-link=/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib
+LIBS = 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s

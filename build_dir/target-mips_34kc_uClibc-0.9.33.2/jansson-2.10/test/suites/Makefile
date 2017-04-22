@@ -212,9 +212,9 @@ INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = mips-openwrt-linux-uclibc-ld
-LDFLAGS = -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib 
+LDFLAGS = -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib -Wl,-rpath-link=/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -lm 
 LIBOBJS = 
-LIBS = -Wl,-rpath-link=/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib
+LIBS = 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
