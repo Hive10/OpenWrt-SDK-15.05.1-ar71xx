@@ -1,3 +1,19 @@
+Package: zlib-dev
+Version: 1.2.11-1
+Depends: libc, zlib
+Source: package/zlib-v1.2.11
+License: Zlib
+LicenseFiles: README
+Section: devel
+Architecture: ar71xx
+Installed-Size: 72414
+Filename: zlib-dev_1.2.11-1_ar71xx.ipk
+Size: 73224
+MD5Sum: 5187007558540f08844833a6d6ff3ad8
+SHA256sum: aa2206add355a3fbf84ae5a581829ff94a1182980e1df690640a2326d62479c3
+Description:  zlib is a lossless data-compression library.
+ This package includes the development support files.
+
 Package: zlib
 Version: 1.2.11-1
 Depends: libc
@@ -6,11 +22,11 @@ License: Zlib
 LicenseFiles: README
 Section: libs
 Architecture: ar71xx
-Installed-Size: 38937
+Installed-Size: 38936
 Filename: zlib_1.2.11-1_ar71xx.ipk
-Size: 39696
-MD5Sum: 0e8833922aca57a300d347e5880f0e6c
-SHA256sum: 9133a8b9379308bd9ef1228c535f693de68efa96e418c0d27291d6e3bba94563
+Size: 39701
+MD5Sum: 38d0b063c02d3464b32374f8deef49de
+SHA256sum: 6b64f027522a2031b80e9bc69a59cb6826dbcec57c45d7803a2264a009bd3251
 Description:  zlib is a lossless data-compression library.
  This package includes the shared library.
 
