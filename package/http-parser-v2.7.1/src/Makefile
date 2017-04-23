@@ -64,6 +64,8 @@ ifneq (darwin,$(PLATFORM))
 LDFLAGS_LIB += -Wl,-soname=$(SONAME)
 endif
 
+# Running test fais when crosscompiling 
+# Tests pass on mips, TL-WR842N, Chaos Calmer, r49474
 #test: test_g test_fast
 #	$(HELPER) ./test_g$(BINEXT)
 #	$(HELPER) ./test_fast$(BINEXT)
@@ -147,3 +149,4 @@ contrib/url_parser.c:	http_parser.h
 contrib/parsertrace.c:	http_parser.h
 
 .PHONY: clean package test-run test-run-timed test-valgrind install install-strip uninstall
+
