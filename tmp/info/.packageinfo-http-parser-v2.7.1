@@ -1,0 +1,18 @@
+Source-Makefile: package/http-parser-v2.7.1/Makefile
+Package: http-parser
+Version: 2.7.1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Title: HTTP parser library
+Maintainer: 
+Source: v2.7.1.tar.gz
+Type: ipkg
+Description: HTTP parser library
+
+@@
+
+

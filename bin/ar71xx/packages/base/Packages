@@ -1,0 +1,13 @@
+Package: http-parser
+Version: 2.7.1-1
+Depends: libc
+Source: package/http-parser-v2.7.1
+Section: libs
+Architecture: ar71xx
+Installed-Size: 12140
+Filename: http-parser_2.7.1-1_ar71xx.ipk
+Size: 12708
+MD5Sum: 0df7ec8e55d9d49c0c6ad4cda0f47f08
+SHA256sum: 6f7838a57e0d2e02cd9d2c5a6bb8d5f2f470a0d6467286bd93b90e47a1fa0235
+Description:  HTTP parser library
+

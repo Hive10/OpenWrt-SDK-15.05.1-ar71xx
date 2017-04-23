@@ -1,0 +1,8 @@
+Package: http-parser
+Version: 2.7.1-1
+Depends: libc
+Source: package/http-parser-v2.7.1
+Section: libs
+Architecture: ar71xx
+Installed-Size: 12140
+Description:  HTTP parser library
