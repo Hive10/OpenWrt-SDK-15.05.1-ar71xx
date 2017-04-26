@@ -11,11 +11,13 @@ PKG_NAME:=jose
 PKG_VERSION:=7
 PKG_RELEASE:=1
 
-#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-#PKG_SOURCE_URL:=https://github.com/latchset/$(PKG_NAME)/releases/download/v$(PKG_VERSION)/
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_SOURCE_URL:=https://github.com/latchset/$(PKG_NAME)/releases/download/v$(PKG_VERSION)/
 
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
+
+PKG_FIXUP:=autoreconf -iv
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -27,7 +29,7 @@ define Package/jose
 endef
 
 TARGET_CFLAGS += $(FPIC)
-TARGET_LDFLAGS+=-Wl,-rpath-link=$(STAGING_DIR)/usr/lib
+TARGET_LDFLAGS+=-Wl,-rpath-link=$(1)/usr/lib
 
 define Package/jose/description
 	José is a command line utility for performing various tasks on JSON
@@ -39,7 +41,7 @@ ifeq ($(CONFIG_x86_64),y)
   JOSE_TARGET:=linux-x86_64
 else
   ifeq ($(CONFIG_mips)$(CONFIG_mipsel),y)
-    JOSE_TARGET:=linux-mips-openwrt
+    JOSE_TARGET:=mips-openwrt-linux-uclibc
   else
     JOSE_TARGET:=linux-generic-openwrt
   endif
@@ -47,13 +49,12 @@ endif
 
 define Build/Configure
 	(cd $(PKG_BUILD_DIR); \
-		./Configure $(JOSE_TARGET) \
-			--prefix=/usr \
-			--openssldir=/etc/ssl \
+		./configure \
+			$(JOSE_TARGET) \
 			$(TARGET_CFLAGS) \
-			$(TARGET_LDFLAGS) -ldl \
-			-DOPENSSL_SMALL_FOOTPRINT \
-	)
+			--prefix=/usr ; \
+	./config.guess \
+)
 endef
 
 
