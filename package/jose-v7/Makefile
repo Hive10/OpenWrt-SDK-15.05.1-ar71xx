@@ -48,11 +48,10 @@ else
 endif
 
 define Build/Configure
-	(cd $(PKG_BUILD_DIR); \
+(	cd $(PKG_BUILD_DIR); \
 		./configure \
 			--host=$(JOSE_TARGET) \
-			--prefix=/usr ; \
-	./config.guess \
+			--prefix=/usr/ ; \
 )
 endef
 
