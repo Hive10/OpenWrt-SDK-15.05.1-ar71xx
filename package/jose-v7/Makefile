@@ -50,8 +50,7 @@ endif
 define Build/Configure
 	(cd $(PKG_BUILD_DIR); \
 		./configure \
-			$(JOSE_TARGET) \
-			$(TARGET_CFLAGS) \
+			--host=$(JOSE_TARGET) \
 			--prefix=/usr ; \
 	./config.guess \
 )

@@ -1,0 +1,1 @@
+package-$(CONFIG_PACKAGE_jose) += jose-v7

@@ -1,0 +1,26 @@
+menuconfig IMAGEOPT
+	bool "Image configuration"
+	default n
+source "package/*/image-config.in"
+menu "Extra packages"
+
+	config PACKAGE_jose
+		tristate "jose............................................................. jose v7"
+		default y if DEFAULT_jose
+		default m if ALL
+		select PACKAGE_jansson-2.9
+		select PACKAGE_openssl
+		select PACKAGE_librt if USE_GLIBC
+		select PACKAGE_libc
+		select PACKAGE_libssp if SSP_SUPPORT
+		select PACKAGE_zlib
+		select PACKAGE_libpthread if USE_GLIBC
+		help
+		 José is a command line utility for performing various tasks on JSON
+		 	Object Signing and Encryption (JOSE) objects. José provides a full
+		 	crypto stack including key generation, signing and encryption.
+		 https://github.com/latchset/jose
+		 
+
+endmenu
+
