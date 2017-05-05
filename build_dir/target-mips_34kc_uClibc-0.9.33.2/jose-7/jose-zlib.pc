@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: José zLib Library
+Description: Library for managing JOSE objects using zlib
+Requires: jose
+Requires.private: zlib
+Version: 7
+Libs: -Wl,--push-state -Wl,--no-as-needed -L${libdir} -ljose-zlib -Wl,--pop-state
+Cflags: -I${includedir}
