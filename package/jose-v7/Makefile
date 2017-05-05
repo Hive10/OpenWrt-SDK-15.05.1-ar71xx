@@ -17,7 +17,11 @@ PKG_SOURCE_URL:=https://github.com/latchset/$(PKG_NAME)/releases/download/v$(PKG
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
 
-PKG_FIXUP:=autoreconf -iv
+CFLAGS += -std=c99 -fhonour-copts $(FPICS)  
+TARGET_CFLAGS += 
+TARGET_LDFLAGS+=-Wl,-rpath-link=$(1)/usr/lib
+
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -28,8 +32,6 @@ define Package/jose
   URL:=https://github.com/latchset/jose
 endef
 
-TARGET_CFLAGS += $(FPIC)
-TARGET_LDFLAGS+=-Wl,-rpath-link=$(1)/usr/lib
 
 define Package/jose/description
 	José is a command line utility for performing various tasks on JSON
