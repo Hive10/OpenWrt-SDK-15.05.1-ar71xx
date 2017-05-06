@@ -1,0 +1,199 @@
+Package: jose
+Version: 7-1
+Depends: libc, zlib, jansson, libopenssl, libpthread
+Source: package/jose-v7
+Section: utils
+Architecture: ar71xx
+Installed-Size: 43617
+Filename: jose_7-1_ar71xx.ipk
+Size: 44334
+MD5Sum: f3b4145ff967e0163bf4fe407a40addf
+SHA256sum: d3d4e8eb73f652262ac90631c97d3f858bab2108cecd6312ee4d370eb360ea21
+Description:  José is a command line utility for performing various tasks on JSON
+ Object Signing and Encryption (JOSE) objects. José provides a full
+ crypto stack including key generation, signing and encryption.
+
+Package: ldconfig
+Version: 0.9.33.2-1
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: utils
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 8680
+Filename: ldconfig_0.9.33.2-1_ar71xx.ipk
+Size: 9485
+MD5Sum: 280cdba9a301b3831618c1951c7f5d65
+SHA256sum: c6d0fba30e3fb25fba5c3fd312dbff334bd62b9f87c37e333880da09ee46cd2f
+Description:  Shared library path configuration
+
+Package: ldd
+Version: 0.9.33.2-1
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: utils
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 4794
+Filename: ldd_0.9.33.2-1_ar71xx.ipk
+Size: 5497
+MD5Sum: 82ff5de72c3a9e4803284e5ec046b308
+SHA256sum: d69aea8c48d17b4bbf0a26aaae0ab61db24e0b2434a392f75920fb7286ba90b3
+Description:  LDD trace utility
+
+Package: libatomic
+Version: 4.8-linaro-1
+Depends: libgcc
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 4876
+Filename: libatomic_4.8-linaro-1_ar71xx.ipk
+Size: 5629
+MD5Sum: c2ffe07a738ee127ac1cb37f30f3336a
+SHA256sum: 35a8bb3502fa1f711a4e2104020179de38f862ac14b57cb2c148f6f06c5a2997
+Description:  Atomic support library
+
+Package: libgcc
+Version: 4.8-linaro-1
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 31429
+Filename: libgcc_4.8-linaro-1_ar71xx.ipk
+Size: 32175
+MD5Sum: b7add2552fd8e8c0f25f602e5ab695ba
+SHA256sum: 91571e3348cffbde4a44b4761223d8f1a9b13a93ffe77244eea99e36aa3e0cbf
+Description:  GCC support library
+
+Package: libopenssl
+Version: 1.0.2j-1
+Depends: libc, zlib
+Source: feeds/base/package/libs/openssl
+License: OpenSSL
+LicenseFiles: LICENSE
+Section: libs
+Architecture: ar71xx
+Installed-Size: 694293
+Filename: libopenssl_1.0.2j-1_ar71xx.ipk
+Size: 687538
+MD5Sum: a9a2d59c501807faefa7345cd7e766c7
+SHA256sum: 50583e92fd0b4050bb79417765205c403d484c592596a1fb390ed317ed5b2cb8
+Description:  The OpenSSL Project is a collaborative effort to develop a robust,
+ commercial-grade, full-featured, and Open Source toolkit implementing the Secure
+ Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
+ as a full-strength general purpose cryptography library.
+ This package contains the OpenSSL shared libraries, needed by other programs.
+
+Package: libpthread
+Version: 0.9.33.2-1
+Depends: libgcc
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 30500
+Filename: libpthread_0.9.33.2-1_ar71xx.ipk
+Size: 31255
+MD5Sum: 2cc7c430125091555b263a2d0ce8971c
+SHA256sum: 8230061240eb15bc746639f9dc952c352495948ef28975b33675ab5714ffc358
+Description:  POSIX thread library
+
+Package: librt
+Version: 0.9.33.2-1
+Depends: libpthread
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 4934
+Filename: librt_0.9.33.2-1_ar71xx.ipk
+Size: 5706
+MD5Sum: 4350f7536c4d91db30a7cf51d6363a9a
+SHA256sum: 4b3c88894609d27720c8a58021c235e305ed61c52d42353079c3e823bd1a66c0
+Description:  POSIX.1b RealTime extension library
+
+Package: libstdcpp
+Version: 4.8-linaro-1
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 254376
+Filename: libstdcpp_4.8-linaro-1_ar71xx.ipk
+Size: 253431
+MD5Sum: 9720abee66fb2505c5574d76016bb12a
+SHA256sum: bd0a8a071c9f80d81d979c198079ba2986ce3e8dc28d816f89e6354049938542
+Description:  GNU Standard C++ Library v3
+
+Package: libthread-db
+Version: 0.9.33.2-1
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 7426
+Filename: libthread-db_0.9.33.2-1_ar71xx.ipk
+Size: 8219
+MD5Sum: ce1e444a28a1435c30cc19618d9bf6c6
+SHA256sum: d240c7e5cae6cbf917b27f9fa0dd8ec6dd4b96895477b4906fa62e3795e8db3b
+Description:  POSIX thread library debugging support
+
+Package: openssl-util
+Version: 1.0.2j-1
+Depends: libc, libopenssl
+Source: feeds/base/package/libs/openssl
+License: OpenSSL
+LicenseFiles: LICENSE
+Section: utils
+Architecture: ar71xx
+Installed-Size: 197260
+Filename: openssl-util_1.0.2j-1_ar71xx.ipk
+Size: 195672
+MD5Sum: 5985e59f45dd480b97e3e05c64efe570
+SHA256sum: 0ba98efc594d75fec1d978c68879aaead30028135a52028a7f996365f2e97d23
+Description:  The OpenSSL Project is a collaborative effort to develop a robust,
+ commercial-grade, full-featured, and Open Source toolkit implementing the Secure
+ Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
+ as a full-strength general purpose cryptography library.
+ This package contains the OpenSSL command-line utility.
+
+Package: zlib
+Version: 1.2.8-1
+Depends: libc
+Source: feeds/base/package/libs/zlib
+License: Zlib
+LicenseFiles: README
+Section: libs
+Architecture: ar71xx
+Installed-Size: 37046
+Filename: zlib_1.2.8-1_ar71xx.ipk
+Size: 37795
+MD5Sum: f537de5859e87bd800512bde8685bc30
+SHA256sum: 2077b6772862019e16e4a96b880de264caa5c807e58ba0fe5450e8f17cfaff2a
+Description:  Library implementing the deflate compression method
+

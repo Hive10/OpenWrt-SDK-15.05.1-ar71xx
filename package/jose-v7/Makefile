@@ -28,7 +28,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/jose
   SECTION:=utils
   TITLE:=jose v$(PKG_VERSION)
-  DEPENDS:=+zlib +jansson-2.9 +libopenssl +libpthread 
+  DEPENDS:=+zlib +jansson +libopenssl +libpthread 
   URL:=https://github.com/latchset/jose
 endef
 
