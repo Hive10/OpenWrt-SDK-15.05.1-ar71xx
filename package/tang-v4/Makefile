@@ -11,8 +11,8 @@ PKG_NAME:=tang
 PKG_VERSION:=4
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=https://github.com/latchset/$(PKG_NAME)/releases/download/v$(PKG_VERSION)/
+#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+#PKG_SOURCE_URL:=https://github.com/latchset/$(PKG_NAME)/releases/download/v$(PKG_VERSION)/
 
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
@@ -21,10 +21,10 @@ PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/jose
+define Package/tang
   SECTION:=utils
   TITLE:=tang v$(PKG_VERSION)
-  # DEPENDS:=+zlib +jansson-2.9 +openssl
+  DEPENDS:=+jose +http_parser +xinetd
   URL:=https://github.com/latchset/tang
 endef
 
@@ -54,7 +54,7 @@ define Build/Configure
 endef
 
 
-define Package/jose/install
+define Package/tang/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/$(PKG_NAME) $(1)/usr/bin/
 endef
