@@ -62,13 +62,13 @@ SHELL="/bin/sh"
 ECHO="printf %s\\n"
 
 # The host system.
-host_alias=mips-openwrt-linux-uclibc
-host=mips-openwrt-linux-uclibc
-host_os=linux-uclibc
+host_alias=mips-openwrt-linux
+host=mips-openwrt-linux-gnu
+host_os=linux-gnu
 
 # The build system.
-build_alias=
-build=x86_64-unknown-linux-gnu
+build_alias=x86_64-redhat-linux
+build=x86_64-redhat-linux-gnu
 build_os=linux-gnu
 
 # A sed program that does not truncate output.
@@ -87,7 +87,7 @@ EGREP="/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/host/bin/grep -E"
 FGREP="/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/host/bin/grep -F"
 
 # A BSD- or MS-compatible name lister.
-NM="/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/bin/mips-openwrt-linux-uclibc-nm -B"
+NM="mips-openwrt-linux-uclibc-gcc-nm"
 
 # Whether we need soft or hard links.
 LN_S="ln -s"
@@ -138,7 +138,7 @@ DLLTOOL="false"
 sharedlib_from_linklib_cmd="printf %s\\n"
 
 # The archiver.
-AR="mips-openwrt-linux-uclibc-ar"
+AR="mips-openwrt-linux-uclibc-gcc-ar"
 
 # Flags to create an archive.
 AR_FLAGS="cru"
@@ -150,7 +150,7 @@ archiver_list_spec="@"
 STRIP="mips-openwrt-linux-uclibc-strip"
 
 # Commands used to install an old-style archive.
-RANLIB="mips-openwrt-linux-uclibc-ranlib"
+RANLIB="mips-openwrt-linux-uclibc-gcc-ranlib"
 old_postinstall_cmds="chmod 644 \$oldlib~\$RANLIB \$oldlib"
 old_postuninstall_cmds=""
 
@@ -158,10 +158,10 @@ old_postuninstall_cmds=""
 lock_old_archive_extraction=no
 
 # A C compiler.
-LTCC="mips-openwrt-linux-uclibc-gcc -std=gnu99"
+LTCC="ccache_cc"
 
 # LTCC compiler flags.
-LTCFLAGS=""
+LTCFLAGS="-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float  -mips16 -minterlink-mips16 -std=gnu99 -fPIC -O3  "
 
 # Take the output of nm and produce a listing of raw symbols and C names.
 global_symbol_pipe="sed -n -e 's/^.*[	 ]\\([ABCDGIRSTW][ABCDGIRSTW]*\\)[	 ][	 ]*\\([_A-Za-z][_A-Za-z0-9]*\\)\$/\\1 \\2 \\2/p' | sed '/ __gnu_lto/d'"
@@ -289,7 +289,7 @@ striplib="mips-openwrt-linux-uclibc-strip --strip-unneeded"
 
 
 # The linker used to build libraries.
-LD="/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/mips-openwrt-linux-uclibc/bin/ld"
+LD="mips-openwrt-linux-uclibc-ld"
 
 # How to create reloadable object files.
 reload_flag=" -r"
@@ -299,7 +299,7 @@ reload_cmds="\$LD\$reload_flag -o \$output\$reload_objs"
 old_archive_cmds="\$AR \$AR_FLAGS \$oldlib\$oldobjs~\$RANLIB \$oldlib"
 
 # A language specific compiler.
-CC="mips-openwrt-linux-uclibc-gcc -std=gnu99"
+CC="ccache_cc"
 
 # Is the compiler the GNU compiler?
 with_gcc=yes

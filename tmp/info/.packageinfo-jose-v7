@@ -1,7 +1,7 @@
 Source-Makefile: package/jose-v7/Makefile
 Package: jose
 Version: 7-1
-Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib +jansson-2.9 +openssl
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib +jansson-2.9 +libopenssl +libpthread
 Conflicts: 
 Menu-Depends: 
 Provides: 

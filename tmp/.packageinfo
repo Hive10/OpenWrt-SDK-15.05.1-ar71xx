@@ -1,7 +1,7 @@
 Source-Makefile: package/jose-v7/Makefile
 Package: jose
 Version: 7-1
-Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib +jansson-2.9 +openssl
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib +jansson-2.9 +libopenssl +libpthread
 Conflicts: 
 Menu-Depends: 
 Provides: 
@@ -15,6 +15,85 @@ Description: 	José is a command line utility for performing various tasks on JS
 	Object Signing and Encryption (JOSE) objects. José provides a full
 	crypto stack including key generation, signing and encryption.
 https://github.com/latchset/jose
+
+@@
+
+
+Source-Makefile: package/feeds/base/ocf-crypto-headers/Makefile
+Package: ocf-crypto-headers
+Version: 20110720-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Title: OCF-Linux cryptodev header
+Maintainer: 
+Source: 
+License: GPL-2.0
+LicenseFiles: cryptodev.h
+Type: ipkg
+Feed: base
+Description: OCF-Linux cryptodev header
+http://ocf-linux.sourceforge.net/
+
+@@
+
+
+Source-Makefile: package/feeds/base/openssl/Makefile
+Package: libopenssl
+Menu: 1
+Submenu: SSL
+Version: 1.0.2j-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: ocf-crypto-headers
+Section: libs
+Category: Libraries
+Title: Open source SSL toolkit (libraries)
+Maintainer: 
+Source: openssl-1.0.2j.tar.gz
+License: OpenSSL
+LicenseFiles: LICENSE
+Type: ipkg
+Feed: base
+Description: The OpenSSL Project is a collaborative effort to develop a robust,
+commercial-grade, full-featured, and Open Source toolkit implementing the Secure
+Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
+as a full-strength general purpose cryptography library.
+This package contains the OpenSSL shared libraries, needed by other programs.
+http://www.openssl.org/
+
+@@
+Config:
+source "feeds/base/package/libs/openssl/Config.in"
+@@
+
+Package: openssl-util
+Version: 1.0.2j-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: ocf-crypto-headers
+Section: utils
+Category: Utilities
+Title: Open source SSL toolkit (utility)
+Maintainer: 
+Source: openssl-1.0.2j.tar.gz
+License: OpenSSL
+LicenseFiles: LICENSE
+Type: ipkg
+Feed: base
+Description: The OpenSSL Project is a collaborative effort to develop a robust,
+commercial-grade, full-featured, and Open Source toolkit implementing the Secure
+Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
+as a full-strength general purpose cryptography library.
+This package contains the OpenSSL command-line utility.
+http://www.openssl.org/
 
 @@
 
@@ -411,6 +490,28 @@ Config:
 		default "./sbin/ldconfig"
 
 	endmenu
+@@
+
+
+Source-Makefile: package/feeds/base/zlib/Makefile
+Package: zlib
+Version: 1.2.8-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Title: Library implementing the deflate compression method
+Maintainer: 
+Source: zlib-1.2.8.tar.gz
+License: Zlib
+LicenseFiles: README
+Type: ipkg
+Feed: base
+Description: Library implementing the deflate compression method
+http://www.zlib.net/
+
 @@
 
 

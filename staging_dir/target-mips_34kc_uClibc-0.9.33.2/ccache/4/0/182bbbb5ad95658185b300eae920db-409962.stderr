@@ -1,0 +1,4 @@
+x509_vfy.c: In function 'check_revocation':
+x509_vfy.c:977:12: warning: 'ok' may be used uninitialized in this function [-Wmaybe-uninitialized]
+         if (!ok)
+            ^
