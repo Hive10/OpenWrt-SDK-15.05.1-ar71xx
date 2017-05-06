@@ -13,6 +13,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=https://github.com/latchset/$(PKG_NAME)/releases/download/v$(PKG_VERSION)/
+PKG_HASH:=2bb1d228944de62140403aacb874fe2cfbfbf979d6362fedb39427f1b1d2a702 
 
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
@@ -43,7 +44,7 @@ CONFIGURE_ARGS += 	\
 			--prefix=/usr/ \ 
 			--host=$(JOSE_TARGET) 
 
-TARGET_CFLAGS+=-std=gnu99 -fPIC -O3 #-ffast-math -I.
+TARGET_CFLAGS+=-std=gnu99 -O3 $(FPIC) 
 MAKE_FLAGS+= LD="$(TARGET_CC) -o" 
 
 ifeq ($(CONFIG_x86_64),y)

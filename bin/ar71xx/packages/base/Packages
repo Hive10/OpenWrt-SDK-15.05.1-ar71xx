@@ -4,11 +4,11 @@ Depends: libc, zlib, jansson, libopenssl, libpthread
 Source: package/jose-v7
 Section: utils
 Architecture: ar71xx
-Installed-Size: 43617
+Installed-Size: 43630
 Filename: jose_7-1_ar71xx.ipk
-Size: 44334
-MD5Sum: f3b4145ff967e0163bf4fe407a40addf
-SHA256sum: d3d4e8eb73f652262ac90631c97d3f858bab2108cecd6312ee4d370eb360ea21
+Size: 44350
+MD5Sum: 22e25bc555d345c1d82371c4a0ba72c8
+SHA256sum: 7e3f2dcd4f144647c2e46eddeee078e368625258992550bc5e4e1d2e74bf60fc
 Description:  José is a command line utility for performing various tasks on JSON
  Object Signing and Encryption (JOSE) objects. José provides a full
  crypto stack including key generation, signing and encryption.
