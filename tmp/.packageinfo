@@ -1,0 +1,19 @@
+Source-Makefile: package/tang-v4/Makefile
+Package: tang
+Version: 4-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +jose +http_parser +xinetd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Extra packages
+Title: tang v4
+Maintainer: 
+Source: 
+Type: ipkg
+Description: tang v4
+https://github.com/latchset/tang
+
+@@
+
+

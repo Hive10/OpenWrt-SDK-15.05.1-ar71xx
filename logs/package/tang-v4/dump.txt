@@ -1,0 +1,17 @@
+Package: jose
+Version: 4-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: opt
+Category: Extra packages
+Title: 
+Maintainer: 
+Source: 
+Type: ipkg
+Description: 	Tang is a small daemon for binding data to the presence of a third party.
+
+@@
+
+Makefile:62: *** Package/jose is missing the TITLE field.  Stop.

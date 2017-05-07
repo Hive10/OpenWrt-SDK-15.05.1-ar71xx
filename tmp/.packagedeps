@@ -1,0 +1,1 @@
+package-$(CONFIG_PACKAGE_tang) += tang-v4

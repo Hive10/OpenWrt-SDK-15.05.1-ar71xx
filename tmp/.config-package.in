@@ -1,0 +1,24 @@
+menuconfig IMAGEOPT
+	bool "Image configuration"
+	default n
+source "package/*/image-config.in"
+menu "Extra packages"
+
+	config PACKAGE_tang
+		tristate "tang............................................................. tang v4"
+		default y if DEFAULT_tang
+		default m if ALL
+		select PACKAGE_xinetd
+		select PACKAGE_librt if USE_GLIBC
+		select PACKAGE_jose
+		select PACKAGE_http_parser
+		select PACKAGE_libpthread if USE_GLIBC
+		select PACKAGE_libc
+		select PACKAGE_libssp if SSP_SUPPORT
+		help
+		 tang v4
+		 https://github.com/latchset/tang
+		 
+
+endmenu
+

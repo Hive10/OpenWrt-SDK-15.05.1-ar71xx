@@ -59,4 +59,4 @@ define Package/tang/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/$(PKG_NAME) $(1)/usr/bin/
 endef
 
-$(eval $(call BuildPackage,jose))
+$(eval $(call BuildPackage,tang))
