@@ -104,6 +104,7 @@ libs/glib2
 libs/gnutls
 libs/gperf
 libs/hidapi
+libs/http-parser
 libs/ibrcommon
 libs/ibrdtn
 libs/intltool
@@ -134,7 +135,6 @@ libs/libftdi1
 libs/libgcrypt
 libs/libgd
 libs/libgpg-error
-libs/libhttp-parser
 libs/libical
 libs/libid3tag
 libs/libidn
@@ -400,6 +400,7 @@ sound/sox
 sound/svox
 sound/upmpdcli
 utils/acl
+utils/acl/jose
 utils/alsa-utils
 utils/attr
 utils/avrdude

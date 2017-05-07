@@ -1,0 +1,17 @@
+Package/jansson/feed = packages
+Package/jose/feed = packages
+Package/ldconfig/feed = base
+Package/ldd/feed = base
+Package/libatomic/feed = base
+Package/libc/feed = base
+Package/libgcc/feed = base
+Package/libgfortran/feed = base
+Package/libopenssl/feed = base
+Package/libpthread/feed = base
+Package/librt/feed = base
+Package/libssp/feed = base
+Package/libstdcpp/feed = base
+Package/libthread-db/feed = base
+Package/ocf-crypto-headers/feed = base
+Package/openssl-util/feed = base
+Package/zlib/feed = base
