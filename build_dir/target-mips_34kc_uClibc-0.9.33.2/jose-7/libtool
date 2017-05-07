@@ -62,9 +62,9 @@ SHELL="/bin/sh"
 ECHO="printf %s\\n"
 
 # The host system.
-host_alias=mips-openwrt-linux
-host=mips-openwrt-linux-gnu
-host_os=linux-gnu
+host_alias=mips-openwrt-linux-uclibc
+host=mips-openwrt-linux-uclibc
+host_os=linux-uclibc
 
 # The build system.
 build_alias=x86_64-redhat-linux
@@ -161,7 +161,7 @@ lock_old_archive_extraction=no
 LTCC="ccache_cc"
 
 # LTCC compiler flags.
-LTCFLAGS="-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float  -mips16 -minterlink-mips16 -std=gnu99 -O3 -fpic  "
+LTCFLAGS="-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -std=gnu99 -O3 -fpic -mips16 -minterlink-mips16 "
 
 # Take the output of nm and produce a listing of raw symbols and C names.
 global_symbol_pipe="sed -n -e 's/^.*[	 ]\\([ABCDGIRSTW][ABCDGIRSTW]*\\)[	 ][	 ]*\\([_A-Za-z][_A-Za-z0-9]*\\)\$/\\1 \\2 \\2/p' | sed '/ __gnu_lto/d'"

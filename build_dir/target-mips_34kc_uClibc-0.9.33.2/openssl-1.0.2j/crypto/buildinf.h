@@ -59,5 +59,5 @@
         '6','_','A','S','M',' ','-','D','A','E','S','_','A','S','M','\0'
     };
     #define PLATFORM "platform: linux-mips-openwrt"
-    #define DATE "built on: Sun May  7 02:32:46 2017"
+    #define DATE "built on: Sun May  7 17:24:04 2017"
 #endif

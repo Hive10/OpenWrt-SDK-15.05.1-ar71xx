@@ -13,14 +13,16 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=https://github.com/latchset/$(PKG_NAME)/releases/download/v$(PKG_VERSION)/
-PKG_HASH:=2bb1d228944de62140403aacb874fe2cfbfbf979d6362fedb39427f1b1d2a702 
+PKG_HASH:=2bb1d228944de62140403aacb874fe2cfbfbf979d6362fedb39427f1b1d2a702
 
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
 
-CFLAGS += -std=c99 -fhonour-copts $(FPICS)  
-TARGET_CFLAGS += 
-TARGET_LDFLAGS+=-Wl,-rpath-link=$(1)/usr/lib
+CFLAGS += -std=c99 -fhonour-copts $(FPICS)
+TARGET_CFLAGS += -std=gnu99 -O3 $(FPIC)
+TARGET_LDFLAGS += -Wl,-rpath-link=$(1)/usr/lib
+
+MAKE_FLAGS += LD="$(TARGET_CC) -o"
 
 PKG_FIXUP:=autoreconf
 
@@ -29,23 +31,15 @@ include $(INCLUDE_DIR)/package.mk
 define Package/jose
   SECTION:=utils
   TITLE:=jose v$(PKG_VERSION)
-  DEPENDS:=+zlib +jansson +libopenssl +libpthread 
+  DEPENDS:=+zlib +jansson +libopenssl +libpthread
   URL:=https://github.com/latchset/jose
 endef
-
 
 define Package/jose/description
 	José is a command line utility for performing various tasks on JSON
 	Object Signing and Encryption (JOSE) objects. José provides a full
 	crypto stack including key generation, signing and encryption.
 endef
-
-CONFIGURE_ARGS += 	\
-			--prefix=/usr/ \ 
-			--host=$(JOSE_TARGET) 
-
-TARGET_CFLAGS+=-std=gnu99 -O3 $(FPIC) 
-MAKE_FLAGS+= LD="$(TARGET_CC) -o" 
 
 ifeq ($(CONFIG_x86_64),y)
   JOSE_TARGET:=linux-x86_64
@@ -57,6 +51,9 @@ else
   endif
 endif
 
+CONFIGURE_ARGS +=       \
+                         --prefix=/usr/ \
+                         --host=$(JOSE_TARGET)
 
 define Build/Configure
 	(cd $(PKG_BUILD_DIR); touch \

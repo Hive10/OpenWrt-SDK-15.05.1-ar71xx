@@ -90,7 +90,7 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = x86_64-redhat-linux-gnu
-host_triplet = mips-openwrt-linux-gnu
+host_triplet = mips-openwrt-linux-uclibc
 target_triplet = mips-openwrt-linux-gnu
 am__append_1 = jose/openssl.h
 am__append_2 = jose-openssl.pc
@@ -498,7 +498,7 @@ AUTOMAKE = ${SHELL} /home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/build_dir/target
 AWK = gawk
 CC = ccache_cc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float  -mips16 -minterlink-mips16 -std=gnu99 -O3 -fpic  
+CFLAGS = -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -std=gnu99 -O3 -fpic -mips16 -minterlink-mips16 
 CPP = ccache_cc -E
 CPPFLAGS = -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include 
 CYGPATH_W = echo
@@ -578,10 +578,10 @@ datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = /usr
-host = mips-openwrt-linux-gnu
-host_alias = mips-openwrt-linux
+host = mips-openwrt-linux-uclibc
+host_alias = mips-openwrt-linux-uclibc
 host_cpu = mips
-host_os = linux-gnu
+host_os = linux-uclibc
 host_vendor = openwrt
 htmldir = ${docdir}
 includedir = ${prefix}/include
