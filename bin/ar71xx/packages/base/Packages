@@ -2,12 +2,20 @@ Package: http-parser
 Version: 2.7.1-1
 Depends: libc
 Source: package/http-parser-v2.7.1
+License: MIT
+LicenseFiles: LICENSE-MIT
 Section: libs
+Maintainer: Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
 Architecture: ar71xx
-Installed-Size: 12140
+Installed-Size: 11979
 Filename: http-parser_2.7.1-1_ar71xx.ipk
-Size: 12708
-MD5Sum: 0df7ec8e55d9d49c0c6ad4cda0f47f08
-SHA256sum: 6f7838a57e0d2e02cd9d2c5a6bb8d5f2f470a0d6467286bd93b90e47a1fa0235
-Description:  HTTP parser library
+Size: 12830
+MD5Sum: a4653ee7591f701186b9bde2acf90aff
+SHA256sum: 9cf860aea2256dbe992029c56fd33d8ca3c29b14e01e92cdd4f76188b99100b6
+Description:  A parser for HTTP messages written in C. It parses both requests and responses. 
+ The parser is designed to be used in performance HTTP applications. 
+ It does not make any syscalls nor allocations, it does not buffer data, 
+ it can be interrupted at anytime. Depending on your architecture, 
+ it only requires about 40 bytes of data per message stream 
+ (in a web server that is per connection).
 
