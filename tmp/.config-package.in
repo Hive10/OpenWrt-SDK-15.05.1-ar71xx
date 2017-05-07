@@ -249,13 +249,13 @@ menu "Extra packages"
 		default y if DEFAULT_jose
 		default m if ALL
 		select PACKAGE_librt if USE_GLIBC
-		select PACKAGE_jansson
-		select PACKAGE_libpthread if USE_GLIBC
-		select PACKAGE_libc
 		select PACKAGE_libopenssl
-		select PACKAGE_libpthread
-		select PACKAGE_zlib
 		select PACKAGE_libssp if SSP_SUPPORT
+		select PACKAGE_jansson
+		select PACKAGE_zlib
+		select PACKAGE_libpthread
+		select PACKAGE_libc
+		select PACKAGE_libpthread if USE_GLIBC
 		help
 		 José is a command line utility for performing various tasks on JSON
 		 	Object Signing and Encryption (JOSE) objects. José provides a full
@@ -272,11 +272,11 @@ menu "SSL"
 		tristate "libopenssl........................... Open source SSL toolkit (libraries)"
 		default y if DEFAULT_libopenssl
 		default m if ALL
-		select PACKAGE_libpthread if USE_GLIBC
-		select PACKAGE_librt if USE_GLIBC
-		select PACKAGE_libssp if SSP_SUPPORT
 		select PACKAGE_zlib
+		select PACKAGE_libpthread if USE_GLIBC
 		select PACKAGE_libc
+		select PACKAGE_libssp if SSP_SUPPORT
+		select PACKAGE_librt if USE_GLIBC
 		help
 		 The OpenSSL Project is a collaborative effort to develop a robust,
 		 commercial-grade, full-featured, and Open Source toolkit implementing the Secure
@@ -294,10 +294,10 @@ endmenu
 		tristate "jansson.................................................. Jansson library"
 		default y if DEFAULT_jansson
 		default m if ALL
+		select PACKAGE_librt if USE_GLIBC
+		select PACKAGE_libpthread if USE_GLIBC
 		select PACKAGE_libssp if SSP_SUPPORT
 		select PACKAGE_libc
-		select PACKAGE_libpthread if USE_GLIBC
-		select PACKAGE_librt if USE_GLIBC
 		help
 		 Jansson is a C library for encoding, decoding and manipulating JSON data
 		 http://www.digip.org/jansson/
@@ -309,8 +309,8 @@ endmenu
 		default m if ALL
 		select PACKAGE_libssp if SSP_SUPPORT
 		select PACKAGE_libc
-		select PACKAGE_librt if USE_GLIBC
 		select PACKAGE_libpthread if USE_GLIBC
+		select PACKAGE_librt if USE_GLIBC
 		help
 		 Library implementing the deflate compression method
 		 http://www.zlib.net/
@@ -380,8 +380,8 @@ menu "Utilities"
 		tristate "ocf-crypto-headers............................ OCF-Linux cryptodev header"
 		default y if DEFAULT_ocf-crypto-headers
 		default m if ALL
-		select PACKAGE_libpthread if USE_GLIBC
 		select PACKAGE_librt if USE_GLIBC
+		select PACKAGE_libpthread if USE_GLIBC
 		select PACKAGE_libssp if SSP_SUPPORT
 		select PACKAGE_libc
 		help
@@ -393,11 +393,11 @@ menu "Utilities"
 		tristate "openssl-util........................... Open source SSL toolkit (utility)"
 		default y if DEFAULT_openssl-util
 		default m if ALL
-		select PACKAGE_librt if USE_GLIBC
 		select PACKAGE_libpthread if USE_GLIBC
 		select PACKAGE_libssp if SSP_SUPPORT
-		select PACKAGE_libopenssl
 		select PACKAGE_libc
+		select PACKAGE_libopenssl
+		select PACKAGE_librt if USE_GLIBC
 		help
 		 The OpenSSL Project is a collaborative effort to develop a robust,
 		 commercial-grade, full-featured, and Open Source toolkit implementing the Secure
