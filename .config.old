@@ -1608,6 +1608,7 @@ CONFIG_PACKAGE_whereis=m
 #
 # Extra packages
 #
+CONFIG_PACKAGE_jose=m
 CONFIG_PACKAGE_tang=m
 
 #
