@@ -23,14 +23,19 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/tang
   SECTION:=utils
-  TITLE:=tang v$(PKG_VERSION)
+  TITLE:=tang v$(PKG_VERSION) - daemon for binding data to the presence of a third party
   DEPENDS:=+jose +http_parser +xinetd
   URL:=https://github.com/latchset/tang
 endef
 
 TARGET_CFLAGS += $(FPIC)
 
-define Package/jose/description
+define Build/Prepare
+	mkdir -p $(PKG_BUILD_DIR)
+	$(CP) ./src/* $(PKG_BUILD_DIR)/
+endef
+
+define Package/tang/description
 	Tang is a small daemon for binding data to the presence of a third party.
 endef
 
@@ -44,13 +49,16 @@ else
   endif
 endif
 
+CONFIGURE_ARGS +=       \
+                         --prefix=/usr/ \
+                         --host=$(JOSE_TARGET)
+
 define Build/Configure
-	(cd $(PKG_BUILD_DIR); \
-		./configure \
-			--host=$(TANG_TARGET) \
-			--prefix=/usr ; \
-	./config.guess \
-)
+	(cd $(PKG_BUILD_DIR); touch \
+	include.m4 \
+	Makefile.in \
+	);
+	$(call Build/Configure/Default)
 endef
 
 
