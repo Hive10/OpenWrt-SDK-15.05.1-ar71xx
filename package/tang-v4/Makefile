@@ -49,9 +49,9 @@ else
   endif
 endif
 
-CONFIGURE_ARGS +=       \
-                         --prefix=/usr/ \
-                         --host=$(JOSE_TARGET)
+CONFIGURE_ARGS +=	\
+                        --prefix=/usr/ \
+			--host=$(TANG_TARGET)
 
 define Build/Configure
 	(cd $(PKG_BUILD_DIR); touch \
@@ -65,6 +65,9 @@ endef
 define Package/tang/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/$(PKG_NAME) $(1)/usr/bin/
+	mkdir -p $(PKG_INSTALL_DIR)/etc/xinetd.d/
+	$(CP) $(PKG_BUILD_DIR)/tangd.xinetd $(PKG_INSTALL_DIR)/etc/xinetd.d/
+	
 endef
 
 $(eval $(call BuildPackage,tang))
