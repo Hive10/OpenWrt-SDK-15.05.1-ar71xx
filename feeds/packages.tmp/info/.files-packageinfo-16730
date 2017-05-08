@@ -400,7 +400,6 @@ sound/sox
 sound/svox
 sound/upmpdcli
 utils/acl
-utils/acl/jose
 utils/alsa-utils
 utils/attr
 utils/avrdude
@@ -434,6 +433,7 @@ utils/hdparm
 utils/hfsprogs
 utils/hub-ctrl
 utils/joe
+utils/jose
 utils/kmod
 utils/less
 utils/lm-sensors

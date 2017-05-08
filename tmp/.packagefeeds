@@ -1,4 +1,3 @@
-Package/http-parser/feed = packages
 Package/jansson/feed = packages
 Package/jose/feed = packages
 Package/ldconfig/feed = base

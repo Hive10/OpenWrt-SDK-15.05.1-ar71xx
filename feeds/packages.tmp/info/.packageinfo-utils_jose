@@ -1,4 +1,4 @@
-Source-Makefile: package/feeds/packages/jose/Makefile
+Source-Makefile: feeds/packages/utils/jose/Makefile
 Package: jose
 Version: 7-1
 Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib +jansson +libopenssl +libpthread
@@ -11,7 +11,6 @@ Title: provides a full crypto stack including key generation, signing and encryp
 Maintainer: 
 Source: jose-7.tar.bz2
 Type: ipkg
-Feed: packages
 Description: 	José is a command line utility for performing various tasks on JSON
 	Object Signing and Encryption (JOSE) objects. José provides a full
 	crypto stack including key generation, signing and encryption.
