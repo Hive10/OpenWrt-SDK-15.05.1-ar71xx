@@ -30,7 +30,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/jose
   SECTION:=utils
-  TITLE:=provides a full crypto stack including key generation, signing and encryption.
+  TITLE:=Provides a full crypto stack including key generation, signing and encryption.
   DEPENDS:=+zlib +jansson +libopenssl +libpthread
   URL:=https://github.com/latchset/jose
 endef
@@ -40,20 +40,6 @@ define Package/jose/description
 	Object Signing and Encryption (JOSE) objects. José provides a full
 	crypto stack including key generation, signing and encryption.
 endef
-
-ifeq ($(CONFIG_x86_64),y)
-  JOSE_TARGET:=linux-x86_64
-else
-  ifeq ($(CONFIG_mips)$(CONFIG_mipsel),y)
-    JOSE_TARGET:=mips-openwrt-linux-uclibc
-  else
-    JOSE_TARGET:=linux-generic-openwrt
-  endif
-endif
-
-CONFIGURE_ARGS +=       \
-                         --prefix=/usr/ \
-                         --host=$(JOSE_TARGET)
 
 define Build/Configure
 	(cd $(PKG_BUILD_DIR); touch \
