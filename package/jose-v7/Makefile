@@ -30,7 +30,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/jose
   SECTION:=utils
-  TITLE:=jose v$(PKG_VERSION)
+  TITLE:=provides a full crypto stack including key generation, signing and encryption.
   DEPENDS:=+zlib +jansson +libopenssl +libpthread
   URL:=https://github.com/latchset/jose
 endef
