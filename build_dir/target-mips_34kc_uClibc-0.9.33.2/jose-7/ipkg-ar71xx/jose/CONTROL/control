@@ -1,0 +1,10 @@
+Package: jose
+Version: 7-1
+Depends: libc, zlib, jansson, libopenssl, libpthread
+Source: feeds/packages/utils/acl/jose
+Section: utils
+Architecture: ar71xx
+Installed-Size: 43620
+Description:  José is a command line utility for performing various tasks on JSON
+ Object Signing and Encryption (JOSE) objects. José provides a full
+ crypto stack including key generation, signing and encryption.

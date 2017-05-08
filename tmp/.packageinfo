@@ -7,11 +7,11 @@ Menu-Depends:
 Provides: 
 Section: utils
 Category: Extra packages
-Title: tang v4
+Title: tang v4 - daemon for binding data to the presence of a third party
 Maintainer: 
 Source: 
 Type: ipkg
-Description: tang v4
+Description: 	Tang is a small daemon for binding data to the presence of a third party.
 https://github.com/latchset/tang
 
 @@
@@ -510,6 +510,33 @@ Feed: base
 Description: Library implementing the deflate compression method
 http://www.zlib.net/
 
+@@
+
+
+Source-Makefile: package/feeds/packages/http-parser/Makefile
+Package: http-parser
+Version: 2.7.1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Title: A library to parse http request and response
+Maintainer: Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
+Source: http-parser-2.7.1.tar.bz2
+License: MIT
+LicenseFiles: LICENSE-MIT
+Type: ipkg
+Feed: packages
+Description:   A parser for HTTP messages written in C. It parses both requests and responses. 
+  The parser is designed to be used in performance HTTP applications. 
+  It does not make any syscalls nor allocations, it does not buffer data, 
+  it can be interrupted at anytime. Depending on your architecture, 
+  it only requires about 40 bytes of data per message stream 
+  (in a web server that is per connection).
+https://github.com/nodejs/http-parser
+Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
 @@
 
 

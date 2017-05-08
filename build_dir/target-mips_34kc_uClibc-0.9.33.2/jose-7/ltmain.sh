@@ -1,0 +1,1 @@
+/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/../host/share/libtool/config/ltmain.sh
