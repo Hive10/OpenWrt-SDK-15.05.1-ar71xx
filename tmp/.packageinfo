@@ -7,7 +7,7 @@ Menu-Depends:
 Provides: 
 Section: utils
 Category: Extra packages
-Title: provides a full crypto stack including key generation, signing and encryption.
+Title: Provides a full crypto stack including key generation, signing and encryption.
 Maintainer: 
 Source: jose-7.tar.bz2
 Type: ipkg

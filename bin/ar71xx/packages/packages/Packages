@@ -6,10 +6,10 @@ License: MIT
 Section: libs
 Maintainer: Gergely Kiss <mail.gery@gmail.com>
 Architecture: ar71xx
-Installed-Size: 17352
+Installed-Size: 17356
 Filename: jansson_2.10-1_ar71xx.ipk
-Size: 18134
-MD5Sum: 46deac917f76be8c7749f80f7752788a
-SHA256sum: 966e5833094ea3bafba670c62ed210b553e474dcebdf0b0d97c1031985c8e5fc
+Size: 18139
+MD5Sum: 06e62612387fc5442e310348d507c73b
+SHA256sum: 11e232c2f026eda145cfb34e1a4188f787a9dd4d3c59241e4b508df640e1da44
 Description:  Jansson is a C library for encoding, decoding and manipulating JSON data
 

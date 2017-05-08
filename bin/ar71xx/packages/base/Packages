@@ -4,11 +4,11 @@ Depends: libc, zlib, jansson, libopenssl, libpthread
 Source: package/jose-v7
 Section: utils
 Architecture: ar71xx
-Installed-Size: 43626
+Installed-Size: 43628
 Filename: jose_7-1_ar71xx.ipk
-Size: 44362
-MD5Sum: e3179fa81a8a8468d2acfabf42531f6b
-SHA256sum: 603f52da9ef67d13b1c8e2e1a4b3901e40c6a523a970ee651e818c67b489456d
+Size: 44363
+MD5Sum: b3334eea573db72aae6b9d863675f84b
+SHA256sum: 38fd1d78ef09b6ef0f86370993d81f59b8b1c2d19ed3cad5f97b92b68baea69f
 Description:  José is a command line utility for performing various tasks on JSON
  Object Signing and Encryption (JOSE) objects. José provides a full
  crypto stack including key generation, signing and encryption.
@@ -86,11 +86,11 @@ License: OpenSSL
 LicenseFiles: LICENSE
 Section: libs
 Architecture: ar71xx
-Installed-Size: 694273
+Installed-Size: 694278
 Filename: libopenssl_1.0.2j-1_ar71xx.ipk
-Size: 687462
-MD5Sum: 53d76a78fb00948771f92b881faa0bf9
-SHA256sum: 07063afec0c0a05a7987bcccd0ead0a09a6323b46bcf4dd4d88455f4a9ac73c4
+Size: 687414
+MD5Sum: 5a522106cadf55e1d5ac571bc2be70f9
+SHA256sum: cd9215ba4d06ea761115063379de7c561cadfb7b9ff75a212a37123eba84d81c
 Description:  The OpenSSL Project is a collaborative effort to develop a robust,
  commercial-grade, full-featured, and Open Source toolkit implementing the Secure
  Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
@@ -171,11 +171,11 @@ License: OpenSSL
 LicenseFiles: LICENSE
 Section: utils
 Architecture: ar71xx
-Installed-Size: 197255
+Installed-Size: 197258
 Filename: openssl-util_1.0.2j-1_ar71xx.ipk
-Size: 195716
-MD5Sum: af79aed4be0bb679bf59e3eb876d3ca8
-SHA256sum: 9a0131a308c9c5c40e2321e08c12c54ca83f19b3feefd18be71df0e74943c2f4
+Size: 195689
+MD5Sum: 9f24ba065689e8c19b8b362c23d2c550
+SHA256sum: b182a223208627551d5836c4bb043f327e866a6aee1db76775c49310250a2d5e
 Description:  The OpenSSL Project is a collaborative effort to develop a robust,
  commercial-grade, full-featured, and Open Source toolkit implementing the Secure
  Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
@@ -190,10 +190,10 @@ License: Zlib
 LicenseFiles: README
 Section: libs
 Architecture: ar71xx
-Installed-Size: 37046
+Installed-Size: 37044
 Filename: zlib_1.2.8-1_ar71xx.ipk
-Size: 37787
-MD5Sum: 52ed531db22657c9c74c493a78a911d7
-SHA256sum: fa7b25378f9e59d8ffe1cedc79805d98fcf1e25b8a4948d06fff6788bc781365
+Size: 37789
+MD5Sum: c46f12cfbebe4b3c7ef128c1f0607278
+SHA256sum: 84d5d93555b665f166957e6c331dabe2b03dc9ceea6c92d3bb1bdd2ce87674cc
 Description:  Library implementing the deflate compression method
 
