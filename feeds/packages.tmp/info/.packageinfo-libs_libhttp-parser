@@ -1,6 +1,6 @@
 Source-Makefile: feeds/packages/libs/libhttp-parser/Makefile
 Package: libhttp-parser
-Version: 2.7.1-1
+Version: 2.3.0-1
 Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
 Conflicts: 
 Menu-Depends: 
@@ -9,7 +9,7 @@ Section: libs
 Category: Libraries
 Title: A library to parse http request and response
 Maintainer: Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
-Source: libhttp-parser-2.7.1.tar.bz2
+Source: libhttp-parser-2.3.0.tar.bz2
 License: MIT
 LicenseFiles: LICENSE-MIT
 Type: ipkg

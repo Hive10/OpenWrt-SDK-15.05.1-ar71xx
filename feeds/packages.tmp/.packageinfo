@@ -9993,7 +9993,7 @@ Section: libs
 Category: Libraries
 Title: A library to parse http request and response
 Maintainer: Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
-Source: http-parser-2.7.1.tar.bz2
+Source: http-parser-2.7.1.tar.gz
 License: MIT
 LicenseFiles: LICENSE-MIT
 Type: ipkg
@@ -35492,7 +35492,7 @@ Menu-Depends:
 Provides: 
 Section: utils
 Category: Extra packages
-Title: provides a full crypto stack including key generation, signing and encryption.
+Title: Provides a full crypto stack including key generation, signing and encryption.
 Maintainer: 
 Source: jose-7.tar.bz2
 Type: ipkg
