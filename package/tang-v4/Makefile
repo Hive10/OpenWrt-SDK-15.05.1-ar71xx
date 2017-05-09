@@ -28,6 +28,7 @@ define Package/tang
   URL:=https://github.com/latchset/tang
 endef
 
+CFLAGS += -fhonour-copts 
 TARGET_CFLAGS += $(FPIC)
 
 define Build/Prepare

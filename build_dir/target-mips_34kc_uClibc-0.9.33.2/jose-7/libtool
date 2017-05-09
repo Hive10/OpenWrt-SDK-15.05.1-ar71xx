@@ -62,9 +62,9 @@ SHELL="/bin/sh"
 ECHO="printf %s\\n"
 
 # The host system.
-host_alias=mips-openwrt-linux-uclibc
-host=mips-openwrt-linux-uclibc
-host_os=linux-uclibc
+host_alias=mips-openwrt-linux
+host=mips-openwrt-linux-gnu
+host_os=linux-gnu
 
 # The build system.
 build_alias=x86_64-redhat-linux
