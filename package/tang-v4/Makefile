@@ -39,20 +39,6 @@ define Package/tang/description
 	Tang is a small daemon for binding data to the presence of a third party.
 endef
 
-ifeq ($(CONFIG_x86_64),y)
-  TANG_TARGET:=linux-x86_64
-else
-  ifeq ($(CONFIG_mips)$(CONFIG_mipsel),y)
-    TANG_TARGET:=mips-openwrt-linux-uclibc
-  else
-    TANG_TARGET:=linux-generic-openwrt
-  endif
-endif
-
-CONFIGURE_ARGS +=	\
-                        --prefix=/usr/ \
-			--host=$(TANG_TARGET)
-
 define Build/Configure
 	(cd $(PKG_BUILD_DIR); touch \
 	include.m4 \
@@ -60,7 +46,6 @@ define Build/Configure
 	);
 	$(call Build/Configure/Default)
 endef
-
 
 define Package/tang/install
 	$(INSTALL_DIR) $(1)/usr/bin
