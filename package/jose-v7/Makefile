@@ -33,6 +33,7 @@ define Package/jose
   TITLE:=Provides a full crypto stack including key generation, signing and encryption.
   DEPENDS:=+zlib +jansson +libopenssl +libpthread
   URL:=https://github.com/latchset/jose
+  MAINTAINER:=Tibor Dudlák <tibor.dudlak@gmail.com>
 endef
 
 define Package/jose/description
@@ -47,6 +48,12 @@ define Build/Configure
 	Makefile.in \
 	);
 	$(call Build/Configure/Default)
+endef
+
+define Build/InstallDev
+	$(INSTALL_DIR) $(1)/usr/{lib,include}
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/lib* $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/* $(1)/usr/include/
 endef
 
 

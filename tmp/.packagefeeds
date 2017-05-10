@@ -14,3 +14,4 @@ Package/libthread-db/feed = base
 Package/ocf-crypto-headers/feed = base
 Package/openssl-util/feed = base
 Package/zlib/feed = base
+Package/zlib-dev/feed = base
