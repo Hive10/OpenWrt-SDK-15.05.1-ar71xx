@@ -8,13 +8,10 @@ libgcc_s.so.1
 libjansson.so
 libjansson.so.4
 libjansson.so.4.10.0
-libjose-openssl.so
 libjose-openssl.so.0
 libjose-openssl.so.0.0.0
-libjose-zlib.so
 libjose-zlib.so.0
 libjose-zlib.so.0.0.0
-libjose.so
 libjose.so.0
 libjose.so.0.0.0
 libm-0.9.33.2.so

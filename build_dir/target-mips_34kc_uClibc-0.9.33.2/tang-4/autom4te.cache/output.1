@@ -587,10 +587,6 @@ am__EXEEXT_TRUE
 LTLIBOBJS
 LIB@&t@OBJS
 TANG_CFLAGS
-SD_ACTIVATE
-systemdsystemunitdir
-systemd_LIBS
-systemd_CFLAGS
 jose_openssl_LIBS
 jose_openssl_CFLAGS
 jose_zlib_LIBS
@@ -700,7 +696,6 @@ ac_user_opts='
 enable_option_checking
 enable_dependency_tracking
 enable_silent_rules
-with_systemdsystemunitdir
 '
       ac_precious_vars='build_alias
 host_alias
@@ -716,9 +711,7 @@ PKG_CONFIG_LIBDIR
 jose_zlib_CFLAGS
 jose_zlib_LIBS
 jose_openssl_CFLAGS
-jose_openssl_LIBS
-systemd_CFLAGS
-systemd_LIBS'
+jose_openssl_LIBS'
 
 
 # Initialize some variables set by options.
@@ -1345,12 +1338,6 @@ Optional Features:
   --enable-silent-rules   less verbose build output (undo: "make V=1")
   --disable-silent-rules  verbose build output (undo: "make V=0")
 
-Optional Packages:
-  --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
-  --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
-  --with-systemdsystemunitdir=DIR 
-                          Directory for systemd service files
-
 Some influential environment variables:
   CC          C compiler command
   CFLAGS      C compiler flags
@@ -1372,10 +1359,6 @@ Some influential environment variables:
               C compiler flags for jose_openssl, overriding pkg-config
   jose_openssl_LIBS 
               linker flags for jose_openssl, overriding pkg-config
-  systemd_CFLAGS 
-              C compiler flags for systemd, overriding pkg-config
-  systemd_LIBS 
-              linker flags for systemd, overriding pkg-config
 
 Use these variables to override the choices made by `configure' or to help
 it to find libraries and programs with nonstandard names/locations.
@@ -4421,164 +4404,31 @@ $as_echo "yes" >&6; }
 	
 fi
 
+#PKG_CHECK_MODULES([systemd], [systemd])
 
-pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for systemd" >&5
-$as_echo_n "checking for systemd... " >&6; }
+#AC_ARG_WITH([systemdsystemunitdir],
+#            [AS_HELP_STRING([--with-systemdsystemunitdir=DIR], [Directory for systemd service files])],
+#            [],
+#            [with_systemdsystemunitdir=$($PKG_CONFIG --variable=systemdsystemunitdir systemd)])
 
-if test -n "$systemd_CFLAGS"; then
-    pkg_cv_systemd_CFLAGS="$systemd_CFLAGS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"systemd\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "systemd") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_systemd_CFLAGS=`$PKG_CONFIG --cflags "systemd" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes 
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-if test -n "$systemd_LIBS"; then
-    pkg_cv_systemd_LIBS="$systemd_LIBS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"systemd\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "systemd") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_systemd_LIBS=`$PKG_CONFIG --libs "systemd" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes 
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
+#AC_SUBST([systemdsystemunitdir], [$with_systemdsystemunitdir])
 
+#for ac_prog in systemd-socket-activate systemd-activate; do
+#    AC_CHECK_PROG([SD_ACTIVATE], [$ac_prog], [$as_dir/$ac_prog], [],
+#		  [$PATH$PATH_SEPARATOR$($PKG_CONFIG --variable=systemdutildir systemd)])
+#    test -n "$SD_ACTIVATE" && break
+#done
+#
+#test -n "$SD_ACTIVATE" || AC_MSG_ERROR([systemd-socket-activate required!])
 
-
-if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-        
-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
-        _pkg_short_errors_supported=yes
-else
-        _pkg_short_errors_supported=no
-fi
-        if test $_pkg_short_errors_supported = yes; then
-	        systemd_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "systemd" 2>&1`
-        else 
-	        systemd_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "systemd" 2>&1`
-        fi
-	# Put the nasty error message in config.log where it belongs
-	echo "$systemd_PKG_ERRORS" >&5
-
-	as_fn_error $? "Package requirements (systemd) were not met:
-
-$systemd_PKG_ERRORS
-
-Consider adjusting the PKG_CONFIG_PATH environment variable if you
-installed software in a non-standard prefix.
-
-Alternatively, you may set the environment variables systemd_CFLAGS
-and systemd_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details." "$LINENO" 5        
-elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
-is in your PATH or set the PKG_CONFIG environment variable to the full
-path to pkg-config.
-
-Alternatively, you may set the environment variables systemd_CFLAGS
-and systemd_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details.
-
-To get pkg-config, see <http://pkg-config.freedesktop.org/>.
-See \`config.log' for more details" "$LINENO" 5; }        
-else
-	systemd_CFLAGS=$pkg_cv_systemd_CFLAGS
-	systemd_LIBS=$pkg_cv_systemd_LIBS
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
-	
-fi
-
-
-@%:@ Check whether --with-systemdsystemunitdir was given.
-if test "${with_systemdsystemunitdir+set}" = set; then :
-  withval=$with_systemdsystemunitdir; 
-else
-  with_systemdsystemunitdir=$($PKG_CONFIG --variable=systemdsystemunitdir systemd)
-fi
-
-
-systemdsystemunitdir=$with_systemdsystemunitdir
-
-
-for ac_prog in systemd-socket-activate systemd-activate; do
-    # Extract the first word of "$ac_prog", so it can be a program name with args.
-set dummy $ac_prog; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
-$as_echo_n "checking for $ac_word... " >&6; }
-if ${ac_cv_prog_SD_ACTIVATE+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  if test -n "$SD_ACTIVATE"; then
-  ac_cv_prog_SD_ACTIVATE="$SD_ACTIVATE" # Let the user override the test.
-else
-as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
-for as_dir in $PATH$PATH_SEPARATOR$($PKG_CONFIG --variable=systemdutildir systemd)
-do
-  IFS=$as_save_IFS
-  test -z "$as_dir" && as_dir=.
-    for ac_exec_ext in '' $ac_executable_extensions; do
-  if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
-    ac_cv_prog_SD_ACTIVATE="$as_dir/$ac_prog"
-    $as_echo "$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext" >&5
-    break 2
-  fi
-done
-  done
-IFS=$as_save_IFS
-
-fi
-fi
-SD_ACTIVATE=$ac_cv_prog_SD_ACTIVATE
-if test -n "$SD_ACTIVATE"; then
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $SD_ACTIVATE" >&5
-$as_echo "$SD_ACTIVATE" >&6; }
-else
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-fi
-
-
-    test -n "$SD_ACTIVATE" && break
-done
-
-test -n "$SD_ACTIVATE" || as_fn_error $? "systemd-socket-activate required!" "$LINENO" 5
-
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking systemd-socket-activate inetd flag" >&5
-$as_echo_n "checking systemd-socket-activate inetd flag... " >&6; }
-if $SD_ACTIVATE --help | grep -q inetd; then
-    SD_ACTIVATE="$SD_ACTIVATE --inetd"
-    { $as_echo "$as_me:${as_lineno-$LINENO}: result: --inetd" >&5
-$as_echo "--inetd" >&6; }
-    
-else
-    { $as_echo "$as_me:${as_lineno-$LINENO}: result: (default)" >&5
-$as_echo "(default)" >&6; }
-fi
+#AC_MSG_CHECKING([systemd-socket-activate inetd flag])
+#if $SD_ACTIVATE --help | grep -q inetd; then
+#    SD_ACTIVATE="$SD_ACTIVATE --inetd"
+#    AC_MSG_RESULT([--inetd])
+#    AC_SUBST(SD_ACTIVATE)
+#else
+#    AC_MSG_RESULT([(default)])
+#fi
 
 TANG_CFLAGS="\
 -Wall \

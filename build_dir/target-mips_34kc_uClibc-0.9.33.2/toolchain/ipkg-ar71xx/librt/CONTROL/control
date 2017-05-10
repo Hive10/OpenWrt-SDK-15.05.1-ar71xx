@@ -8,5 +8,5 @@ Status: unknown hold not-installed
 Essential: yes
 Maintainer: Felix Fietkau <nbd@openwrt.org>
 Architecture: ar71xx
-Installed-Size: 4929
+Installed-Size: 4928
 Description:  POSIX.1b RealTime extension library

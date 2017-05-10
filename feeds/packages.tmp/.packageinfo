@@ -35493,14 +35493,14 @@ Provides:
 Section: utils
 Category: Extra packages
 Title: Provides a full crypto stack including key generation, signing and encryption.
-Maintainer: 
+Maintainer: Tibor Dudlák <tibor.dudlak@gmail.com>
 Source: jose-7.tar.bz2
 Type: ipkg
 Description: 	José is a command line utility for performing various tasks on JSON
 	Object Signing and Encryption (JOSE) objects. José provides a full
 	crypto stack including key generation, signing and encryption.
 https://github.com/latchset/jose
-
+Tibor Dudlák <tibor.dudlak@gmail.com>
 @@
 
 

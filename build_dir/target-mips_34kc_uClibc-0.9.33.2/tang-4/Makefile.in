@@ -14,6 +14,7 @@
 
 @SET_MAKE@
 
+#DISTCHECK_CONFIGURE_FLAGS = --with-systemdsystemunitdir=$$dc_install_base/$(systemdsystemunitdir)
 
 
 VPATH = @srcdir@
@@ -107,7 +108,7 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_CLEAN_FILES = test-adv test-rec test-nagios
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(libexecdir)" "$(DESTDIR)$(nagiosdir)" \
-	"$(DESTDIR)$(libexecdir)" "$(DESTDIR)$(systemdsystemunitdir)"
+	"$(DESTDIR)$(libexecdir)"
 PROGRAMS = $(libexec_PROGRAMS) $(nagios_PROGRAMS)
 am_tang_OBJECTS = nagios.$(OBJEXT)
 tang_OBJECTS = $(am_tang_OBJECTS)
@@ -180,7 +181,6 @@ am__can_run_installinfo = \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
-DATA = $(systemdsystemunit_DATA)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 # Read a list of newline-separated strings from the standard input,
 # and print each of them once, without duplicates.  Input order is
@@ -440,7 +440,6 @@ PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
 PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
 PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
-SD_ACTIVATE = @SD_ACTIVATE@
 SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
@@ -499,9 +498,6 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
 sysconfdir = @sysconfdir@
-systemd_CFLAGS = @systemd_CFLAGS@
-systemd_LIBS = @systemd_LIBS@
-systemdsystemunitdir = @systemdsystemunitdir@
 target = @target@
 target_alias = @target_alias@
 target_cpu = @target_cpu@
@@ -510,14 +506,14 @@ target_vendor = @target_vendor@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-DISTCHECK_CONFIGURE_FLAGS = --with-systemdsystemunitdir=$$dc_install_base/$(systemdsystemunitdir)
 AM_CFLAGS = @TANG_CFLAGS@ @jose_zlib_CFLAGS@ @jose_openssl_CFLAGS@
 LDADD = @jose_zlib_LIBS@ @jose_openssl_LIBS@ @http_parser_LIBS@
 TESTS = test-adv test-rec test-nagios
 EXTRA_DIST = COPYING $(TESTS) tangd@.service.in tangd.socket.in tangd-update.path.in tangd-update.service.in
-CLEANFILES = $(systemdsystemunit_DATA)
+#CLEANFILES = $(systemdsystemunit_DATA)
 nagiosdir = $(libdir)/nagios/plugins
-systemdsystemunit_DATA = tangd@.service tangd.socket tangd-update.path tangd-update.service
+
+#systemdsystemunit_DATA = tangd@.service tangd.socket tangd-update.path tangd-update.service
 dist_libexec_SCRIPTS = tangd-update
 tangd_SOURCES = http.c http.h tangd.c
 tang_SOURCES = nagios.c
@@ -719,27 +715,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
-install-systemdsystemunitDATA: $(systemdsystemunit_DATA)
-	@$(NORMAL_INSTALL)
-	@list='$(systemdsystemunit_DATA)'; test -n "$(systemdsystemunitdir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(systemdsystemunitdir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(systemdsystemunitdir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(systemdsystemunitdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(systemdsystemunitdir)" || exit $$?; \
-	done
-
-uninstall-systemdsystemunitDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(systemdsystemunit_DATA)'; test -n "$(systemdsystemunitdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(systemdsystemunitdir)'; $(am__uninstall_files_from_dir)
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
@@ -1142,9 +1117,9 @@ distcleancheck: distclean
 check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
-all-am: Makefile $(PROGRAMS) $(SCRIPTS) $(DATA)
+all-am: Makefile $(PROGRAMS) $(SCRIPTS)
 installdirs:
-	for dir in "$(DESTDIR)$(libexecdir)" "$(DESTDIR)$(nagiosdir)" "$(DESTDIR)$(libexecdir)" "$(DESTDIR)$(systemdsystemunitdir)"; do \
+	for dir in "$(DESTDIR)$(libexecdir)" "$(DESTDIR)$(nagiosdir)" "$(DESTDIR)$(libexecdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -1172,7 +1147,6 @@ mostlyclean-generic:
 	-test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
 
 clean-generic:
-	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
@@ -1205,7 +1179,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-nagiosPROGRAMS install-systemdsystemunitDATA
+install-data-am: install-nagiosPROGRAMS
 
 install-dvi: install-dvi-am
 
@@ -1253,7 +1227,7 @@ ps: ps-am
 ps-am:
 
 uninstall-am: uninstall-dist_libexecSCRIPTS uninstall-libexecPROGRAMS \
-	uninstall-nagiosPROGRAMS uninstall-systemdsystemunitDATA
+	uninstall-nagiosPROGRAMS
 
 .MAKE: check-am install-am install-strip
 
@@ -1270,13 +1244,12 @@ uninstall-am: uninstall-dist_libexecSCRIPTS uninstall-libexecPROGRAMS \
 	install-html install-html-am install-info install-info-am \
 	install-libexecPROGRAMS install-man install-nagiosPROGRAMS \
 	install-pdf install-pdf-am install-ps install-ps-am \
-	install-strip install-systemdsystemunitDATA installcheck \
-	installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am recheck tags tags-am \
-	uninstall uninstall-am uninstall-dist_libexecSCRIPTS \
-	uninstall-libexecPROGRAMS uninstall-nagiosPROGRAMS \
-	uninstall-systemdsystemunitDATA
+	install-strip installcheck installcheck-am installdirs \
+	maintainer-clean maintainer-clean-generic mostlyclean \
+	mostlyclean-compile mostlyclean-generic pdf pdf-am ps ps-am \
+	recheck tags tags-am uninstall uninstall-am \
+	uninstall-dist_libexecSCRIPTS uninstall-libexecPROGRAMS \
+	uninstall-nagiosPROGRAMS
 
 .PRECIOUS: Makefile
 
