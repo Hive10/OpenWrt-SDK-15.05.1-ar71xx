@@ -57,7 +57,8 @@ define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/lib$(PKG_NAME)-zlib.so.* 	$(1)/usr/lib
 	mkdir  $(1)/usr/include/$(PKG_NAME)/
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/$(PKG_NAME)/*.h		$(1)/usr/include/$(PKG_NAME)/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/* 			$(1)/usr/lib/pkgconfig
+	mkdir  $(1)/usr/lib/pkgconfig
+	$(CP) $(PKG_BUILD_DIR)/*.pc					$(1)/usr/lib/pkgconfig
 endef
 
 
@@ -66,7 +67,6 @@ define Package/jose/install
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/lib$(PKG_NAME).so.* 		$(1)/usr/lib/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/lib$(PKG_NAME)-openssl.so.* 	$(1)/usr/lib/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/lib$(PKG_NAME)-zlib.so.* 	$(1)/usr/lib/
-	$(CP) $(PKG_BUILD_DIR)/*.la $(1)/usr/lib/ 
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/$(PKG_NAME) $(1)/usr/bin/
 endef
