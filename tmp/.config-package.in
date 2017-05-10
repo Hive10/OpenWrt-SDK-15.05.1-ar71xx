@@ -248,14 +248,14 @@ menu "Extra packages"
 		tristate "jose"
 		default y if DEFAULT_jose
 		default m if ALL
-		select PACKAGE_libssp if SSP_SUPPORT
-		select PACKAGE_libopenssl
-		select PACKAGE_jansson
 		select PACKAGE_libpthread
+		select PACKAGE_libopenssl
 		select PACKAGE_libpthread if USE_GLIBC
 		select PACKAGE_librt if USE_GLIBC
-		select PACKAGE_zlib
+		select PACKAGE_jansson
 		select PACKAGE_libc
+		select PACKAGE_zlib
+		select PACKAGE_libssp if SSP_SUPPORT
 		help
 		 José is a command line utility for performing various tasks on JSON
 		 	Object Signing and Encryption (JOSE) objects. José provides a full
@@ -267,13 +267,13 @@ menu "Extra packages"
 		tristate "tang.. tang v4 - daemon for binding data to the presence of a third party"
 		default y if DEFAULT_tang
 		default m if ALL
-		select PACKAGE_librt if USE_GLIBC
-		select PACKAGE_xinetd
-		select PACKAGE_http_parser
-		select PACKAGE_libc
 		select PACKAGE_jose
 		select PACKAGE_libssp if SSP_SUPPORT
 		select PACKAGE_libpthread if USE_GLIBC
+		select PACKAGE_http_parser
+		select PACKAGE_libc
+		select PACKAGE_librt if USE_GLIBC
+		select PACKAGE_xinetd
 		help
 		 Tang is a small daemon for binding data to the presence of a third party.
 		 https://github.com/latchset/tang
@@ -288,11 +288,11 @@ menu "SSL"
 		tristate "libopenssl........................... Open source SSL toolkit (libraries)"
 		default y if DEFAULT_libopenssl
 		default m if ALL
-		select PACKAGE_libpthread if USE_GLIBC
-		select PACKAGE_libssp if SSP_SUPPORT
-		select PACKAGE_libc
 		select PACKAGE_librt if USE_GLIBC
+		select PACKAGE_libpthread if USE_GLIBC
+		select PACKAGE_libc
 		select PACKAGE_zlib
+		select PACKAGE_libssp if SSP_SUPPORT
 		help
 		 The OpenSSL Project is a collaborative effort to develop a robust,
 		 commercial-grade, full-featured, and Open Source toolkit implementing the Secure
@@ -310,9 +310,9 @@ endmenu
 		tristate "http-parser................. A library to parse http request and response"
 		default y if DEFAULT_http-parser
 		default m if ALL
-		select PACKAGE_libssp if SSP_SUPPORT
 		select PACKAGE_libpthread if USE_GLIBC
 		select PACKAGE_libc
+		select PACKAGE_libssp if SSP_SUPPORT
 		select PACKAGE_librt if USE_GLIBC
 		help
 		 A parser for HTTP messages written in C. It parses both requests and responses. 
@@ -328,10 +328,10 @@ endmenu
 		tristate "jansson.................................................. Jansson library"
 		default y if DEFAULT_jansson
 		default m if ALL
-		select PACKAGE_libpthread if USE_GLIBC
 		select PACKAGE_libssp if SSP_SUPPORT
-		select PACKAGE_librt if USE_GLIBC
 		select PACKAGE_libc
+		select PACKAGE_libpthread if USE_GLIBC
+		select PACKAGE_librt if USE_GLIBC
 		help
 		 Jansson is a C library for encoding, decoding and manipulating JSON data
 		 http://www.digip.org/jansson/
@@ -341,10 +341,10 @@ endmenu
 		tristate "zlib................. Library implementing the deflate compression method"
 		default y if DEFAULT_zlib
 		default m if ALL
-		select PACKAGE_libpthread if USE_GLIBC
 		select PACKAGE_libssp if SSP_SUPPORT
-		select PACKAGE_librt if USE_GLIBC
 		select PACKAGE_libc
+		select PACKAGE_libpthread if USE_GLIBC
+		select PACKAGE_librt if USE_GLIBC
 		help
 		 Library implementing the deflate compression method
 		 http://www.zlib.net/
@@ -414,10 +414,10 @@ menu "Utilities"
 		tristate "ocf-crypto-headers............................ OCF-Linux cryptodev header"
 		default y if DEFAULT_ocf-crypto-headers
 		default m if ALL
-		select PACKAGE_libpthread if USE_GLIBC
-		select PACKAGE_libssp if SSP_SUPPORT
 		select PACKAGE_librt if USE_GLIBC
+		select PACKAGE_libssp if SSP_SUPPORT
 		select PACKAGE_libc
+		select PACKAGE_libpthread if USE_GLIBC
 		help
 		 OCF-Linux cryptodev header
 		 http://ocf-linux.sourceforge.net/
@@ -428,10 +428,10 @@ menu "Utilities"
 		default y if DEFAULT_openssl-util
 		default m if ALL
 		select PACKAGE_libc
-		select PACKAGE_librt if USE_GLIBC
-		select PACKAGE_libopenssl
 		select PACKAGE_libpthread if USE_GLIBC
 		select PACKAGE_libssp if SSP_SUPPORT
+		select PACKAGE_librt if USE_GLIBC
+		select PACKAGE_libopenssl
 		help
 		 The OpenSSL Project is a collaborative effort to develop a robust,
 		 commercial-grade, full-featured, and Open Source toolkit implementing the Secure

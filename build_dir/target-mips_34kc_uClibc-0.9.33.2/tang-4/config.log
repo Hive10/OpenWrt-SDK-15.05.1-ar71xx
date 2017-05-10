@@ -114,23 +114,23 @@ mips-openwrt-linux-uclibc-gcc: fatal error: no input files
 compilation terminated.
 configure:2376: $? = 1
 configure:2396: checking whether the C compiler works
-configure:2418: ccache_cc -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib -Wl,-rpath-link=/usr/lib  conftest.c  >&5
+configure:2418: ccache_cc -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib -Wl,-rpath-link=/usr/lib  conftest.c  >&5
 configure:2422: $? = 0
 configure:2470: result: yes
 configure:2473: checking for C compiler default output file name
 configure:2475: result: a.out
 configure:2481: checking for suffix of executables
-configure:2488: ccache_cc -o conftest -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib -Wl,-rpath-link=/usr/lib  conftest.c  >&5
+configure:2488: ccache_cc -o conftest -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib -Wl,-rpath-link=/usr/lib  conftest.c  >&5
 configure:2492: $? = 0
 configure:2514: result: 
 configure:2536: checking whether we are cross compiling
 configure:2574: result: yes
 configure:2579: checking for suffix of object files
-configure:2601: ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  conftest.c >&5
+configure:2601: ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  conftest.c >&5
 configure:2605: $? = 0
 configure:2626: result: o
 configure:2630: checking whether we are using the GNU C compiler
-configure:2649: ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  conftest.c >&5
+configure:2649: ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  conftest.c >&5
 configure:2649: $? = 0
 configure:2658: result: yes
 configure:2667: checking whether ccache_cc accepts -g
@@ -179,7 +179,7 @@ cc1: note: someone does not honour COPTS correctly, passed 0 times
 configure:2718: $? = 0
 configure:2728: result: yes
 configure:2745: checking for ccache_cc option to accept ISO C89
-configure:2808: ccache_cc  -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  conftest.c >&5
+configure:2808: ccache_cc  -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  conftest.c >&5
 configure:2808: $? = 0
 configure:2821: result: none needed
 configure:2846: checking whether ccache_cc understands -c and -o together
@@ -191,169 +191,9 @@ cc1: note: someone does not honour COPTS correctly, passed 0 times
 configure:2871: $? = 0
 configure:2883: result: yes
 configure:2900: checking for ccache_cc option to accept ISO C99
-configure:3049: ccache_cc  -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  conftest.c >&5
-conftest.c:59:29: error: expected ';', ',' or ')' before 'text'
- test_restrict (ccp restrict text)
-                             ^
-conftest.c: In function 'main':
-conftest.c:113:18: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'newvar'
-   char *restrict newvar = "Another string";
-                  ^
-conftest.c:113:18: error: 'newvar' undeclared (first use in this function)
-conftest.c:113:18: note: each undeclared identifier is reported only once for each function it appears in
-conftest.c:123:3: error: 'for' loop initial declarations are only allowed in C99 mode
-   for (int i = 0; i < ia->datasize; ++i)
-   ^
-conftest.c:123:3: note: use option -std=c99 or -std=gnu99 to compile your code
-configure:3049: $? = 1
-configure: failed program was:
-| /* confdefs.h */
-| #define PACKAGE_NAME "tang"
-| #define PACKAGE_TARNAME "tang"
-| #define PACKAGE_VERSION "4"
-| #define PACKAGE_STRING "tang 4"
-| #define PACKAGE_BUGREPORT ""
-| #define PACKAGE_URL ""
-| /* end confdefs.h.  */
-| #include <stdarg.h>
-| #include <stdbool.h>
-| #include <stdlib.h>
-| #include <wchar.h>
-| #include <stdio.h>
-| 
-| // Check varargs macros.  These examples are taken from C99 6.10.3.5.
-| #define debug(...) fprintf (stderr, __VA_ARGS__)
-| #define showlist(...) puts (#__VA_ARGS__)
-| #define report(test,...) ((test) ? puts (#test) : printf (__VA_ARGS__))
-| static void
-| test_varargs_macros (void)
-| {
-|   int x = 1234;
-|   int y = 5678;
-|   debug ("Flag");
-|   debug ("X = %d\n", x);
-|   showlist (The first, second, and third items.);
-|   report (x>y, "x is %d but y is %d", x, y);
-| }
-| 
-| // Check long long types.
-| #define BIG64 18446744073709551615ull
-| #define BIG32 4294967295ul
-| #define BIG_OK (BIG64 / BIG32 == 4294967297ull && BIG64 % BIG32 == 0)
-| #if !BIG_OK
-|   your preprocessor is broken;
-| #endif
-| #if BIG_OK
-| #else
-|   your preprocessor is broken;
-| #endif
-| static long long int bignum = -9223372036854775807LL;
-| static unsigned long long int ubignum = BIG64;
-| 
-| struct incomplete_array
-| {
-|   int datasize;
-|   double data[];
-| };
-| 
-| struct named_init {
-|   int number;
-|   const wchar_t *name;
-|   double average;
-| };
-| 
-| typedef const char *ccp;
-| 
-| static inline int
-| test_restrict (ccp restrict text)
-| {
-|   // See if C++-style comments work.
-|   // Iterate through items via the restricted pointer.
-|   // Also check for declarations in for loops.
-|   for (unsigned int i = 0; *(text+i) != '\0'; ++i)
-|     continue;
-|   return 0;
-| }
-| 
-| // Check varargs and va_copy.
-| static void
-| test_varargs (const char *format, ...)
-| {
-|   va_list args;
-|   va_start (args, format);
-|   va_list args_copy;
-|   va_copy (args_copy, args);
-| 
-|   const char *str;
-|   int number;
-|   float fnumber;
-| 
-|   while (*format)
-|     {
-|       switch (*format++)
-| 	{
-| 	case 's': // string
-| 	  str = va_arg (args_copy, const char *);
-| 	  break;
-| 	case 'd': // int
-| 	  number = va_arg (args_copy, int);
-| 	  break;
-| 	case 'f': // float
-| 	  fnumber = va_arg (args_copy, double);
-| 	  break;
-| 	default:
-| 	  break;
-| 	}
-|     }
-|   va_end (args_copy);
-|   va_end (args);
-| }
-| 
-| int
-| main ()
-| {
-| 
-|   // Check bool.
-|   _Bool success = false;
-| 
-|   // Check restrict.
-|   if (test_restrict ("String literal") == 0)
-|     success = true;
-|   char *restrict newvar = "Another string";
-| 
-|   // Check varargs.
-|   test_varargs ("s, d' f .", "string", 65, 34.234);
-|   test_varargs_macros ();
-| 
-|   // Check flexible array members.
-|   struct incomplete_array *ia =
-|     malloc (sizeof (struct incomplete_array) + (sizeof (double) * 10));
-|   ia->datasize = 10;
-|   for (int i = 0; i < ia->datasize; ++i)
-|     ia->data[i] = i * 1.234;
-| 
-|   // Check named initializers.
-|   struct named_init ni = {
-|     .number = 34,
-|     .name = L"Test wide string",
-|     .average = 543.34343,
-|   };
-| 
-|   ni.number = 58;
-| 
-|   int dynamic_array[ni.number];
-|   dynamic_array[ni.number - 1] = 543;
-| 
-|   // work around unused variable warnings
-|   return (!success || bignum == 0LL || ubignum == 0uLL || newvar[0] == 'x'
-| 	  || dynamic_array[ni.number - 1] != 543);
-| 
-|   ;
-|   return 0;
-| }
-configure:3049: ccache_cc -std=gnu99 -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  conftest.c >&5
+configure:3049: ccache_cc  -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  conftest.c >&5
 configure:3049: $? = 0
-configure:3069: result: -std=gnu99
+configure:3062: result: none needed
 configure:3077: checking for a sed that does not truncate output
 configure:3141: result: /home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/host/bin/sed
 configure:3163: checking for a BSD-compatible install
@@ -373,22 +213,22 @@ configure:3581: checking for style of include used by make
 configure:3609: result: GNU
 configure:3643: checking whether make supports nested variables
 configure:3660: result: yes
-configure:3746: checking dependency style of ccache_cc -std=gnu99
+configure:3746: checking dependency style of ccache_cc
 configure:3857: result: gcc3
 configure:3926: checking whether make supports nested variables
 configure:3943: result: yes
 configure:4066: checking pkg-config is at least version 0.25
 configure:4069: result: yes
 configure:4079: checking for dlopen in -ldl
-configure:4104: ccache_cc -std=gnu99 -o conftest -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib -Wl,-rpath-link=/usr/lib  conftest.c -ldl   >&5
+configure:4104: ccache_cc -o conftest -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib -Wl,-rpath-link=/usr/lib  conftest.c -ldl   >&5
 configure:4104: $? = 0
 configure:4113: result: yes
 configure:4165: checking for http_parser.h
-configure:4165: ccache_cc -std=gnu99 -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  conftest.c >&5
+configure:4165: ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  conftest.c >&5
 configure:4165: $? = 0
 configure:4165: result: yes
 configure:4180: checking for http_parser_execute in -lhttp_parser
-configure:4205: ccache_cc -std=gnu99 -o conftest -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib -Wl,-rpath-link=/usr/lib  conftest.c -lhttp_parser   >&5
+configure:4205: ccache_cc -o conftest -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs   -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include  -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib -Wl,-rpath-link=/usr/lib  conftest.c -lhttp_parser   >&5
 configure:4205: $? = 0
 configure:4214: result: yes
 configure:4226: checking for jose_zlib
@@ -443,7 +283,7 @@ ac_cv_conv_longlong_to_float=yes
 ac_cv_env_CC_set=set
 ac_cv_env_CC_value=ccache_cc
 ac_cv_env_CFLAGS_set=set
-ac_cv_env_CFLAGS_value='-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include  '
+ac_cv_env_CFLAGS_value='-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs  '
 ac_cv_env_CPPFLAGS_set=set
 ac_cv_env_CPPFLAGS_value='-I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include '
 ac_cv_env_LDFLAGS_set=set
@@ -540,7 +380,7 @@ ac_cv_prog_AWK=gawk
 ac_cv_prog_CC=ccache_cc
 ac_cv_prog_STRIP=mips-openwrt-linux-uclibc-strip
 ac_cv_prog_cc_c89=
-ac_cv_prog_cc_c99=-std=gnu99
+ac_cv_prog_cc_c99=
 ac_cv_prog_cc_g=yes
 ac_cv_prog_make_make_set=yes
 ac_cv_regexec_segfault_emptystr=no
@@ -607,9 +447,9 @@ AUTOCONF='${SHELL} /home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/build_dir/target-
 AUTOHEADER='${SHELL} /home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/build_dir/target-mips_34kc_uClibc-0.9.33.2/tang-4/missing autoheader'
 AUTOMAKE='${SHELL} /home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/build_dir/target-mips_34kc_uClibc-0.9.33.2/tang-4/missing automake-1.15'
 AWK='gawk'
-CC='ccache_cc -std=gnu99'
+CC='ccache_cc'
 CCDEPMODE='depmode=gcc3'
-CFLAGS='-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include  '
+CFLAGS='-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs  '
 CPPFLAGS='-I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include '
 CYGPATH_W='echo'
 DEFS='-DPACKAGE_NAME=\"tang\" -DPACKAGE_TARNAME=\"tang\" -DPACKAGE_VERSION=\"4\" -DPACKAGE_STRING=\"tang\ 4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"tang\" -DVERSION=\"4\"'

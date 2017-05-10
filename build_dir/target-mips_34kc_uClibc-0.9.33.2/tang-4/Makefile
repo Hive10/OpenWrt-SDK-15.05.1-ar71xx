@@ -406,9 +406,9 @@ AUTOCONF = ${SHELL} /home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/build_dir/target
 AUTOHEADER = ${SHELL} /home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/build_dir/target-mips_34kc_uClibc-0.9.33.2/tang-4/missing autoheader
 AUTOMAKE = ${SHELL} /home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/build_dir/target-mips_34kc_uClibc-0.9.33.2/tang-4/missing automake-1.15
 AWK = gawk
-CC = ccache_cc -std=gnu99
+CC = ccache_cc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include  
+CFLAGS = -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -I/usr/include -std=c99 -Wnested-externs  
 CPPFLAGS = -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include 
 CYGPATH_W = echo
 DEFS = -DPACKAGE_NAME=\"tang\" -DPACKAGE_TARNAME=\"tang\" -DPACKAGE_VERSION=\"4\" -DPACKAGE_STRING=\"tang\ 4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"tang\" -DVERSION=\"4\"

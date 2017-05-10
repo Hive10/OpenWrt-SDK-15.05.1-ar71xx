@@ -28,8 +28,8 @@ define Package/tang
   URL:=https://github.com/latchset/tang
 endef
 
-CFLAGS += -fhonour-copts 
-TARGET_CFLAGS += $(FPIC) -I$(1)/usr/include 
+CFLAGS += -fhonour-copts -std=c99 $(FPIC)
+TARGET_CFLAGS += $(FPIC) -I$(1)/usr/include -std=c99 -Wnested-externs 
 TARGET_LDFLAGS += -Wl,-rpath-link=$(1)/usr/lib
 
 define Build/Prepare
