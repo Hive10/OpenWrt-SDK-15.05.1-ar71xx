@@ -6,6 +6,6 @@ License: Zlib
 LicenseFiles: README
 Section: devel
 Architecture: ar71xx
-Installed-Size: 72428
+Installed-Size: 72418
 Description:  zlib is a lossless data-compression library.
  This package includes the development support files.

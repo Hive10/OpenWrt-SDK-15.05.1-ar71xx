@@ -5,11 +5,11 @@ Source: package/jose-v7
 Section: utils
 Maintainer: Tibor Dudlák <tibor.dudlak@gmail.com>
 Architecture: ar71xx
-Installed-Size: 44625
+Installed-Size: 44194
 Filename: jose_7-1_ar71xx.ipk
-Size: 45423
-MD5Sum: 952de1ee4d3ad320372e09a423afc102
-SHA256sum: 21d0f577f8dfb111e538effc7cac38bb9557b4e9f319e446d8e761592f3a6bd4
+Size: 44946
+MD5Sum: 522c32dbd614cc32e064b62fd3a76684
+SHA256sum: 4ad7c8fcff82d44caa614cb78990fb9b6feb01cc1729b24f32ed1877241c8a11
 Description:  José is a command line utility for performing various tasks on JSON
  Object Signing and Encryption (JOSE) objects. José provides a full
  crypto stack including key generation, signing and encryption.
@@ -26,8 +26,8 @@ Architecture: ar71xx
 Installed-Size: 8681
 Filename: ldconfig_0.9.33.2-1_ar71xx.ipk
 Size: 9488
-MD5Sum: 621d3b3b523fbbd1764bf5b003da39dd
-SHA256sum: e73c8ec1e414f38d566dd9ddf6e44e3b019967c51222d55d7da0002db1361440
+MD5Sum: 53c987146d4dbaded308ca921ad9231b
+SHA256sum: 2770bf7d12dc763f37d814327076ab73bfc1c3a917175e00ccc8a6582f8a4bd6
 Description:  Shared library path configuration
 
 Package: ldd
@@ -39,11 +39,11 @@ Status: unknown hold not-installed
 Essential: yes
 Maintainer: Felix Fietkau <nbd@openwrt.org>
 Architecture: ar71xx
-Installed-Size: 4797
+Installed-Size: 4794
 Filename: ldd_0.9.33.2-1_ar71xx.ipk
-Size: 5500
-MD5Sum: 2c000fe18b3529a493863ddc79b7573e
-SHA256sum: f49b0f929c2478be35221b0a46db073d684b3a57f4cff569c9249cffc3115adc
+Size: 5506
+MD5Sum: 2093a864719f43b11e5cb984a045be6b
+SHA256sum: 8895b7f0e2be0a00574c5764c92026a258f1d7587be9ba0b79b311d8dce1879b
 Description:  LDD trace utility
 
 Package: libatomic
@@ -56,11 +56,11 @@ Status: unknown hold not-installed
 Essential: yes
 Maintainer: Felix Fietkau <nbd@openwrt.org>
 Architecture: ar71xx
-Installed-Size: 4872
+Installed-Size: 4873
 Filename: libatomic_4.8-linaro-1_ar71xx.ipk
-Size: 5621
-MD5Sum: f4040ca78cc4327b16e3f49685b32065
-SHA256sum: 7346e25f841ec8ffbb214021af38db01dad2617a1faf3e87ae850d42eff33079
+Size: 5629
+MD5Sum: d7e39608d5bc6c8c2c337ecee421a946
+SHA256sum: 690e1fd8eebf03b0a987cdbaa65029aeb2ae745ebd452301e08f00e567074ca6
 Description:  Atomic support library
 
 Package: libgcc
@@ -74,9 +74,9 @@ Maintainer: Felix Fietkau <nbd@openwrt.org>
 Architecture: ar71xx
 Installed-Size: 31428
 Filename: libgcc_4.8-linaro-1_ar71xx.ipk
-Size: 32173
-MD5Sum: 2ed69f402785d038cc148ba4ec6a7b8f
-SHA256sum: 26fa9402c881c5b6c848ba5fd18ebe05e7feedfd087c664381e013758faed792
+Size: 32180
+MD5Sum: abbafbf1c519d6175298689642cd4566
+SHA256sum: 5eea8903d9a93a0a63e5553db894e7fd459a0475fc662523d32157bb6ffc720f
 Description:  GCC support library
 
 Package: libopenssl
@@ -87,11 +87,11 @@ License: OpenSSL
 LicenseFiles: LICENSE
 Section: libs
 Architecture: ar71xx
-Installed-Size: 694294
+Installed-Size: 694280
 Filename: libopenssl_1.0.2j-1_ar71xx.ipk
-Size: 687497
-MD5Sum: a97deaa86f67e403721d13e87473e219
-SHA256sum: ed981452a67fb2f24a469c0978a2578d03033c5f36acf841e5b38e5ce000f1e8
+Size: 687424
+MD5Sum: d6bb587e7b1aaff6d32576670a0df580
+SHA256sum: a6ea9418753000bb169f08ac76e35abfa9b9bfec0d49e672efa9d5c74246bc22
 Description:  The OpenSSL Project is a collaborative effort to develop a robust,
  commercial-grade, full-featured, and Open Source toolkit implementing the Secure
  Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
@@ -108,11 +108,11 @@ Status: unknown hold not-installed
 Essential: yes
 Maintainer: Felix Fietkau <nbd@openwrt.org>
 Architecture: ar71xx
-Installed-Size: 30503
+Installed-Size: 30504
 Filename: libpthread_0.9.33.2-1_ar71xx.ipk
-Size: 31266
-MD5Sum: 547dad6b9144fcbc8403b151dffafbf6
-SHA256sum: 324ecb1a3b1751b2819b12d5d8106022f279386b11432a91ba810a72cf44d22f
+Size: 31260
+MD5Sum: 8708d2c62e996b35cecc27c56380507c
+SHA256sum: ea0fb5cc05af3ec5be9ee8ac8bd1fcfa4dff6bb454d86d25cf7cb86a2a82f583
 Description:  POSIX thread library
 
 Package: librt
@@ -125,11 +125,11 @@ Status: unknown hold not-installed
 Essential: yes
 Maintainer: Felix Fietkau <nbd@openwrt.org>
 Architecture: ar71xx
-Installed-Size: 4929
+Installed-Size: 4931
 Filename: librt_0.9.33.2-1_ar71xx.ipk
-Size: 5704
-MD5Sum: d1f77d34d08d85e8c0b3d39f4710c990
-SHA256sum: ef46fd2124b4e8f848d9cbb0f365d9678d5ee9c60920f884fbf07f5ea6a11b27
+Size: 5705
+MD5Sum: fbe5d0f5b22fb983f289cd99354bb1ec
+SHA256sum: f12d7f8b19678f9d17faf98107b1570ba24b8f6a05503026b6730884b4f69f34
 Description:  POSIX.1b RealTime extension library
 
 Package: libstdcpp
@@ -141,11 +141,11 @@ Status: unknown hold not-installed
 Essential: yes
 Maintainer: Felix Fietkau <nbd@openwrt.org>
 Architecture: ar71xx
-Installed-Size: 254376
+Installed-Size: 254377
 Filename: libstdcpp_4.8-linaro-1_ar71xx.ipk
-Size: 253412
-MD5Sum: c8f68d85269bd938e13ec3cbbc2c3145
-SHA256sum: 783b456db8d80f5302080dc48156057980ae4d26720d62076596c95168cce842
+Size: 253410
+MD5Sum: b087e69dd46a177aa37ca3c74bc520c4
+SHA256sum: 2e035d5f8e14bc6d39baef07409d2e4541a5c83f53cde27f2b2ae9c2f4458b5b
 Description:  GNU Standard C++ Library v3
 
 Package: libthread-db
@@ -159,9 +159,9 @@ Maintainer: Felix Fietkau <nbd@openwrt.org>
 Architecture: ar71xx
 Installed-Size: 7424
 Filename: libthread-db_0.9.33.2-1_ar71xx.ipk
-Size: 8220
-MD5Sum: 9962f4864cdb6e69e846743814ba9c7d
-SHA256sum: 5464e33f8205282dfc0128a08cc0db2900251f90f1e2f0987bc0f47b939ce91a
+Size: 8218
+MD5Sum: a0369c9d9e2425b1b63e1d74043cc77a
+SHA256sum: 8336416624ac51ccceb10d97e270e1cc945f76cc883c6409004ff62d68f99b68
 Description:  POSIX thread library debugging support
 
 Package: openssl-util
@@ -172,11 +172,11 @@ License: OpenSSL
 LicenseFiles: LICENSE
 Section: utils
 Architecture: ar71xx
-Installed-Size: 197262
+Installed-Size: 197261
 Filename: openssl-util_1.0.2j-1_ar71xx.ipk
-Size: 195689
-MD5Sum: 86545741fc5cfd5d305ef143be68d115
-SHA256sum: 5c87c8ed897d8d1d40e693a40b6f08fcd6979e8786387fc8f6e8aa38e6228b87
+Size: 195648
+MD5Sum: 67be0bec62f011a0e3620e8de19e8c09
+SHA256sum: 907465bab7b50d294b282682ec86cdc8e76a53c3f5eda21aa7d4d9d03f0d79b6
 Description:  The OpenSSL Project is a collaborative effort to develop a robust,
  commercial-grade, full-featured, and Open Source toolkit implementing the Secure
  Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
@@ -191,11 +191,11 @@ License: Zlib
 LicenseFiles: README
 Section: devel
 Architecture: ar71xx
-Installed-Size: 72428
+Installed-Size: 72418
 Filename: zlib-dev_1.2.11-1_ar71xx.ipk
-Size: 73246
-MD5Sum: 31868a243178c8323a0c274509711b56
-SHA256sum: f43927286ea179331f9708aca0e905977debafd3e553ce95f534dd50e81f12c2
+Size: 73229
+MD5Sum: 7e47cd11c4b019d1a5744dec60697406
+SHA256sum: 8d6bfb73d8ffc2732ec6c5a1b37130b620a8a31cad16867e4755ab077f07eda1
 Description:  zlib is a lossless data-compression library.
  This package includes the development support files.
 
@@ -207,11 +207,11 @@ License: Zlib
 LicenseFiles: README
 Section: libs
 Architecture: ar71xx
-Installed-Size: 38936
+Installed-Size: 38939
 Filename: zlib_1.2.11-1_ar71xx.ipk
-Size: 39695
-MD5Sum: c2284cca16f56b08532fdb80cb837577
-SHA256sum: bba8c827e6a8dfd4889e0f59f8b3ec3672bb992b621234749c8d503b3ac12455
+Size: 39713
+MD5Sum: 6664aded5eae870bddc67450a4109ec8
+SHA256sum: 11775ebfb906e701ee1ae6789f14f8d493a671214011cfc6157a52fb45c58257
 Description:  zlib is a lossless data-compression library.
  This package includes the shared library.
 

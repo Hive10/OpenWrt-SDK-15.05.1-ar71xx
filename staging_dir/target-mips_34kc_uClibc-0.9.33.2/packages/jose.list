@@ -2,13 +2,10 @@
 ./host
 ./usr
 ./usr/lib
-./usr/lib/libjose-zlib.so
-./usr/lib/libjose.so
 ./usr/lib/libjose-openssl.so.0
 ./usr/lib/libjose-zlib.so.0
 ./usr/lib/libjose.so.0.0.0
 ./usr/lib/libjose-zlib.so.0.0.0
-./usr/lib/libjose-openssl.so
 ./usr/lib/libjose-openssl.so.0.0.0
 ./usr/lib/libjose.so.0
 ./usr/include

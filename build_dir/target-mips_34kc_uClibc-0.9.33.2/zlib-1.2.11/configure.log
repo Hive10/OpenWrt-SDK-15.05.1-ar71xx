@@ -1,69 +1,69 @@
 --------------------
 ./configure --prefix=/usr --shared --uname=Linux
-Wed May 10 12:13:40 CEST 2017
-=== ztest28511.c ===
+Wed May 10 17:48:34 CEST 2017
+=== ztest25827.c ===
 extern int getchar();
 int hello() {return getchar();}
 ===
-ccache_cc -c ztest28511.c
+ccache_cc -c ztest25827.c
 cc1: note: someone does not honour COPTS correctly, passed 0 times
 ... using gcc
 
 Checking for obsessive-compulsive compiler options...
-=== ztest28511.c ===
+=== ztest25827.c ===
 int foo() { return 0; }
 ===
-ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic ztest28511.c
+ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic ztest25827.c
 
 Checking for shared library support...
-=== ztest28511.c ===
+=== ztest25827.c ===
 extern int getchar();
 int hello() {return getchar();}
 ===
-ccache_cc -w -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -fPIC ztest28511.c
-ccache_cc -shared -Wl,-soname,libz.so.1 -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -fPIC -o ztest28511.so ztest28511.o
+ccache_cc -w -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -fPIC ztest25827.c
+ccache_cc -shared -Wl,-soname,libz.so.1 -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -fPIC -o ztest25827.so ztest25827.o
 Building shared library libz.so.1.2.11 with ccache_cc.
 
-=== ztest28511.c ===
+=== ztest25827.c ===
 #include <stdio.h>
 #include <stdlib.h>
 size_t dummy = 0;
 ===
-ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic ztest28511.c
+ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic ztest25827.c
 Checking for size_t... Yes.
 
 
-=== ztest28511.c ===
+=== ztest25827.c ===
 #include <sys/types.h>
 off64_t dummy = 0;
 ===
-ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest28511.c
+ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest25827.c
 Checking for off64_t... Yes.
 Checking for fseeko... Yes.
 
-=== ztest28511.c ===
+=== ztest25827.c ===
 #include <string.h>
 #include <errno.h>
 int main() { return strlen(strerror(errno)); }
 ===
-ccache_cc -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 -o ztest28511 ztest28511.c
+ccache_cc -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 -o ztest25827 ztest25827.c
 Checking for strerror... Yes.
 
-=== ztest28511.c ===
+=== ztest25827.c ===
 #include <unistd.h>
 int main() { return 0; }
 ===
-ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest28511.c
+ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest25827.c
 Checking for unistd.h... Yes.
 
-=== ztest28511.c ===
+=== ztest25827.c ===
 #include <stdarg.h>
 int main() { return 0; }
 ===
-ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest28511.c
+ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest25827.c
 Checking for stdarg.h... Yes.
 
-=== ztest28511.c ===
+=== ztest25827.c ===
 #include <stdio.h>
 #include <stdarg.h>
 #include "zconf.h"
@@ -75,10 +75,10 @@ int main()
   return 0;
 }
 ===
-ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest28511.c
+ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest25827.c
 Checking whether to use vs[n]printf() or s[n]printf()... using vs[n]printf().
 
-=== ztest28511.c ===
+=== ztest25827.c ===
 #include <stdio.h>
 #include <stdarg.h>
 int mytest(const char *fmt, ...)
@@ -95,10 +95,10 @@ int main()
   return (mytest("Hello%d\n", 1));
 }
 ===
-ccache_cc -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 -o ztest28511 ztest28511.c
+ccache_cc -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 -o ztest25827 ztest25827.c
 Checking for vsnprintf() in stdio.h... Yes.
 
-=== ztest28511.c ===
+=== ztest25827.c ===
 #include <stdio.h>
 #include <stdarg.h>
 int mytest(const char *fmt, ...)
@@ -116,10 +116,10 @@ int main()
   return (mytest("Hello%d\n", 1));
 }
 ===
-ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest28511.c
+ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest25827.c
 Checking for return value of vsnprintf()... Yes.
 
-=== ztest28511.c ===
+=== ztest25827.c ===
 #define ZLIB_INTERNAL __attribute__((visibility ("hidden")))
 int ZLIB_INTERNAL foo;
 int main()
@@ -127,7 +127,7 @@ int main()
   return 0;
 }
 ===
-ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest28511.c
+ccache_cc -c -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -D_LARGEFILE64_SOURCE=1 ztest25827.c
 Checking for attribute(visibility) support... Yes.
 
 ALL = static shared all64
