@@ -57,6 +57,7 @@ define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/lib$(PKG_NAME)-zlib.so.* 	$(1)/usr/lib
 	mkdir  $(1)/usr/include/$(PKG_NAME)/
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/$(PKG_NAME)/*.h		$(1)/usr/include/$(PKG_NAME)/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/* 			$(1)/usr/lib/pkgconfig
 endef
 
 
