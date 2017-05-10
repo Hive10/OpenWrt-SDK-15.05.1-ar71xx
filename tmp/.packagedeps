@@ -16,7 +16,6 @@ package-$(CONFIG_PACKAGE_libthread-db) += feeds/base/toolchain
 package-$(CONFIG_PACKAGE_ocf-crypto-headers) += feeds/base/ocf-crypto-headers
 package-$(CONFIG_PACKAGE_openssl-util) += feeds/base/openssl
 package-$(CONFIG_PACKAGE_tang) += tang-v4
-package-$(CONFIG_PACKAGE_xinetd) += feeds/packages/xinetd
 package-$(CONFIG_PACKAGE_zlib) += feeds/base/zlib
 
 $(curdir)/feeds/packages/http-parser/compile += $(curdir)/feeds/base/toolchain/compile $(if $(CONFIG_SSP_SUPPORT),$(curdir)/feeds/base/toolchain/compile) $(if $(CONFIG_USE_GLIBC),$(curdir)/feeds/base/toolchain/compile)
@@ -24,6 +23,5 @@ $(curdir)/feeds/packages/jansson/compile += $(curdir)/feeds/base/toolchain/compi
 $(curdir)/feeds/packages/jose/compile += $(curdir)/feeds/base/openssl/compile $(curdir)/feeds/base/toolchain/compile $(curdir)/feeds/base/zlib/compile $(curdir)/feeds/packages/jansson/compile $(if $(CONFIG_SSP_SUPPORT),$(curdir)/feeds/base/toolchain/compile) $(if $(CONFIG_USE_GLIBC),$(curdir)/feeds/base/toolchain/compile)
 $(curdir)/feeds/base/openssl/compile += $(curdir)/feeds/base/ocf-crypto-headers/compile $(curdir)/feeds/base/toolchain/compile $(curdir)/feeds/base/zlib/compile $(if $(CONFIG_SSP_SUPPORT),$(curdir)/feeds/base/toolchain/compile) $(if $(CONFIG_USE_GLIBC),$(curdir)/feeds/base/toolchain/compile)
 $(curdir)/feeds/base/ocf-crypto-headers/compile += $(curdir)/feeds/base/toolchain/compile $(if $(CONFIG_SSP_SUPPORT),$(curdir)/feeds/base/toolchain/compile) $(if $(CONFIG_USE_GLIBC),$(curdir)/feeds/base/toolchain/compile)
-$(curdir)/tang-v4/compile += $(curdir)/feeds/base/toolchain/compile $(curdir)/feeds/packages/jose/compile $(curdir)/feeds/packages/xinetd/compile $(if $(CONFIG_SSP_SUPPORT),$(curdir)/feeds/base/toolchain/compile) $(if $(CONFIG_USE_GLIBC),$(curdir)/feeds/base/toolchain/compile)
-$(curdir)/feeds/packages/xinetd/compile += $(curdir)/feeds/base/toolchain/compile $(if $(CONFIG_SSP_SUPPORT),$(curdir)/feeds/base/toolchain/compile) $(if $(CONFIG_USE_GLIBC),$(curdir)/feeds/base/toolchain/compile)
+$(curdir)/tang-v4/compile += $(curdir)/feeds/base/toolchain/compile $(curdir)/feeds/packages/jose/compile $(if $(CONFIG_SSP_SUPPORT),$(curdir)/feeds/base/toolchain/compile) $(if $(CONFIG_USE_GLIBC),$(curdir)/feeds/base/toolchain/compile)
 $(curdir)/feeds/base/zlib/compile += $(curdir)/feeds/base/toolchain/compile $(if $(CONFIG_SSP_SUPPORT),$(curdir)/feeds/base/toolchain/compile) $(if $(CONFIG_USE_GLIBC),$(curdir)/feeds/base/toolchain/compile)
