@@ -29,31 +29,31 @@ AC_CHECK_LIB([http_parser], [http_parser_execute],
 PKG_CHECK_MODULES([jose_zlib], [jose-zlib >= 5])
 PKG_CHECK_MODULES([jose_openssl], [jose-openssl >= 5])
 
-PKG_CHECK_MODULES([systemd], [systemd])
+#PKG_CHECK_MODULES([systemd], [systemd])
 
-AC_ARG_WITH([systemdsystemunitdir],
-            [AS_HELP_STRING([--with-systemdsystemunitdir=DIR], [Directory for systemd service files])],
-            [],
-            [with_systemdsystemunitdir=$($PKG_CONFIG --variable=systemdsystemunitdir systemd)])
+#AC_ARG_WITH([systemdsystemunitdir],
+#            [AS_HELP_STRING([--with-systemdsystemunitdir=DIR], [Directory for systemd service files])],
+#            [],
+#            [with_systemdsystemunitdir=$($PKG_CONFIG --variable=systemdsystemunitdir systemd)])
 
-AC_SUBST([systemdsystemunitdir], [$with_systemdsystemunitdir])
+#AC_SUBST([systemdsystemunitdir], [$with_systemdsystemunitdir])
 
-for ac_prog in systemd-socket-activate systemd-activate; do
-    AC_CHECK_PROG([SD_ACTIVATE], [$ac_prog], [$as_dir/$ac_prog], [],
-		  [$PATH$PATH_SEPARATOR$($PKG_CONFIG --variable=systemdutildir systemd)])
-    test -n "$SD_ACTIVATE" && break
-done
+#for ac_prog in systemd-socket-activate systemd-activate; do
+#    AC_CHECK_PROG([SD_ACTIVATE], [$ac_prog], [$as_dir/$ac_prog], [],
+#		  [$PATH$PATH_SEPARATOR$($PKG_CONFIG --variable=systemdutildir systemd)])
+#    test -n "$SD_ACTIVATE" && break
+#done
+#
+#test -n "$SD_ACTIVATE" || AC_MSG_ERROR([systemd-socket-activate required!])
 
-test -n "$SD_ACTIVATE" || AC_MSG_ERROR([systemd-socket-activate required!])
-
-AC_MSG_CHECKING([systemd-socket-activate inetd flag])
-if $SD_ACTIVATE --help | grep -q inetd; then
-    SD_ACTIVATE="$SD_ACTIVATE --inetd"
-    AC_MSG_RESULT([--inetd])
-    AC_SUBST(SD_ACTIVATE)
-else
-    AC_MSG_RESULT([(default)])
-fi
+#AC_MSG_CHECKING([systemd-socket-activate inetd flag])
+#if $SD_ACTIVATE --help | grep -q inetd; then
+#    SD_ACTIVATE="$SD_ACTIVATE --inetd"
+#    AC_MSG_RESULT([--inetd])
+#    AC_SUBST(SD_ACTIVATE)
+#else
+#    AC_MSG_RESULT([(default)])
+#fi
 
 TANG_CFLAGS="\
 -Wall \
