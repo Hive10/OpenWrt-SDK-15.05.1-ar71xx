@@ -29,8 +29,6 @@
 
 #include <jose/jose.h>
 
-#define PATH_MAX 4096
-
 static void
 str_cleanup(char **str)
 {
