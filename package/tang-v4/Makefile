@@ -29,7 +29,7 @@ define Package/tang
 endef
 
 CFLAGS += -fhonour-copts 
-TARGET_CFLAGS += $(FPIC) -std=gnu99 -I$(1)/usr/include  -Wl,-rpath-link=$(1)/usr/lib
+TARGET_CFLAGS += $(FPIC) -std=gnu99 -I$(1)/usr/include 
 TARGET_LDFLAGS += -Wl,-rpath-link=$(1)/usr/lib
 
 define Build/Prepare
