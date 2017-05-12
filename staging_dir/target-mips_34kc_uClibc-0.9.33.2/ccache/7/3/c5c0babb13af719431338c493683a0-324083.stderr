@@ -1,4 +1,0 @@
-x_pkey.c: In function 'X509_PKEY_new':
-x_pkey.c:107:14: warning: variable 'c' set but not used [-Wunused-but-set-variable]
-     ASN1_CTX c;
-              ^

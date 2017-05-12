@@ -1,7 +1,0 @@
-hashtable_seed.c: In function 'json_object_seed':
-hashtable_seed.c:187:8: warning: 'seed' may be used uninitialized in this function [-Wmaybe-uninitialized]
-     if (seed == 0)
-        ^
-hashtable_seed.c:167:14: note: 'seed' was declared here
-     uint32_t seed;
-              ^
