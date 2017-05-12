@@ -400,7 +400,7 @@ AUTOMAKE = ${SHELL} /home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/build_dir/target
 AWK = gawk
 CC = ccache_cc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -std=gnu99 -I/usr/include  -Wl,-rpath-link=/usr/lib 
+CFLAGS = -Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc -fno-caller-saves -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fpic -std=gnu99 -I/usr/include  
 CPPFLAGS = -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include -I/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/include 
 CYGPATH_W = echo
 DEFS = -DPACKAGE_NAME=\"tang\" -DPACKAGE_TARNAME=\"tang\" -DPACKAGE_VERSION=\"4\" -DPACKAGE_STRING=\"tang\ 4\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"tang\" -DVERSION=\"4\"

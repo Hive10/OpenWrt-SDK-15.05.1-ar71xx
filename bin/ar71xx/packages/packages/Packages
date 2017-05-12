@@ -7,11 +7,11 @@ LicenseFiles: LICENSE-MIT
 Section: libs
 Maintainer: Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
 Architecture: ar71xx
-Installed-Size: 11976
+Installed-Size: 11975
 Filename: http-parser_2.7.1-1_ar71xx.ipk
-Size: 12842
-MD5Sum: c96f96cc1a9570f042e76b2d16ee5953
-SHA256sum: 0e1493e9d683dacc0f904bb9da5152627065e81c6016caf544956b0e947f2ff5
+Size: 12830
+MD5Sum: 51422da2f7a2612ccafa2c7025d65066
+SHA256sum: dfc99f6d0f0a44c0f64fb8f34fd46dad6d34723660495414dc705d280de8a79b
 Description:  A parser for HTTP messages written in C. It parses both requests and responses. 
  The parser is designed to be used in performance HTTP applications. 
  It does not make any syscalls nor allocations, it does not buffer data, 
@@ -27,11 +27,11 @@ License: MIT
 Section: libs
 Maintainer: Gergely Kiss <mail.gery@gmail.com>
 Architecture: ar71xx
-Installed-Size: 17353
+Installed-Size: 17355
 Filename: jansson_2.10-1_ar71xx.ipk
-Size: 18143
-MD5Sum: 9dea276201ea05d8647a0ed40a208b3e
-SHA256sum: bf3abbf6b9999c58f1cba6790ff9817dbff78b5f5c78f5f05c9db7260f82e036
+Size: 18138
+MD5Sum: 747aa41b5c4095f7348638b0a5799a31
+SHA256sum: d0611add81a448e6649e2d8aa40c5743a57079bfb79fab3d871fbb78f8187644
 Description:  Jansson is a C library for encoding, decoding and manipulating JSON data
 
 Package: jose
@@ -41,11 +41,11 @@ Source: feeds/packages/utils/jose
 Section: utils
 Maintainer: Tibor Dudlák <tibor.dudlak@gmail.com>
 Architecture: ar71xx
-Installed-Size: 44267
+Installed-Size: 44260
 Filename: jose_7-1_ar71xx.ipk
-Size: 45027
-MD5Sum: 48e86786519cc49a9a2fca1affeff830
-SHA256sum: 85c3e7251443d9596f09876c26b707ae32159a76f6a07f643bcb35af3e1aa4d7
+Size: 45024
+MD5Sum: 52c5c6147945021a53094cde2bfec852
+SHA256sum: ddadd60a1c9a3b2a9eb0c1a93a04e541a5bec11c56cfb0762b2a4664bafb500c
 Description:  José is a command line utility for performing various tasks on JSON
  Object Signing and Encryption (JOSE) objects. José provides a full
  crypto stack including key generation, signing and encryption.

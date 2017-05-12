@@ -7,7 +7,7 @@ LicenseFiles: LICENSE-MIT
 Section: libs
 Maintainer: Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
 Architecture: ar71xx
-Installed-Size: 11976
+Installed-Size: 11975
 Description:  A parser for HTTP messages written in C. It parses both requests and responses. 
  The parser is designed to be used in performance HTTP applications. 
  It does not make any syscalls nor allocations, it does not buffer data, 
