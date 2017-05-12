@@ -1,0 +1,198 @@
+Package: ldconfig
+Version: 0.9.33.2-1
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: utils
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 8681
+Filename: ldconfig_0.9.33.2-1_ar71xx.ipk
+Size: 9486
+MD5Sum: 4be052f32d865d2c75e539effcacd369
+SHA256sum: 5d8426ec8f5fcbc0400ef65ca2b895d27c41a1819ff801503ac41aa847a9da15
+Description:  Shared library path configuration
+
+Package: ldd
+Version: 0.9.33.2-1
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: utils
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 4793
+Filename: ldd_0.9.33.2-1_ar71xx.ipk
+Size: 5498
+MD5Sum: 0dff42dbfb52665e39e7e3acd6dadaee
+SHA256sum: 15568226ac60501daf52f15ff2dd3c41a782fb8aa25096ecd3b2a2dfdd2ef47f
+Description:  LDD trace utility
+
+Package: libatomic
+Version: 4.8-linaro-1
+Depends: libgcc
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 4871
+Filename: libatomic_4.8-linaro-1_ar71xx.ipk
+Size: 5629
+MD5Sum: d1548018e0e070e504833ce0404408cd
+SHA256sum: 39a98f97a3a30547d38cf55a3dd90cbe26eec49b40506629ffe7e9b32154c3ff
+Description:  Atomic support library
+
+Package: libgcc
+Version: 4.8-linaro-1
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 31430
+Filename: libgcc_4.8-linaro-1_ar71xx.ipk
+Size: 32183
+MD5Sum: f8befb0ee13f8ad8befe46087396e027
+SHA256sum: dca2375bdbe0a64e9c7719d6d39e0f75d2e74328f279bf554f3584efd65f2451
+Description:  GCC support library
+
+Package: libopenssl
+Version: 1.0.2j-1
+Depends: libc, zlib
+Source: feeds/base/package/libs/openssl
+License: OpenSSL
+LicenseFiles: LICENSE
+Section: libs
+Architecture: ar71xx
+Installed-Size: 694280
+Filename: libopenssl_1.0.2j-1_ar71xx.ipk
+Size: 687439
+MD5Sum: 75d478a40ef3ddfc7e4f728412879eab
+SHA256sum: 66b1a039c42578d2c815040c21f2eeb2c749b48321b2a17983f2513c87bf5f43
+Description:  The OpenSSL Project is a collaborative effort to develop a robust,
+ commercial-grade, full-featured, and Open Source toolkit implementing the Secure
+ Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
+ as a full-strength general purpose cryptography library.
+ This package contains the OpenSSL shared libraries, needed by other programs.
+
+Package: libpthread
+Version: 0.9.33.2-1
+Depends: libgcc
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 30502
+Filename: libpthread_0.9.33.2-1_ar71xx.ipk
+Size: 31270
+MD5Sum: 88c9a3f647cf42aeb076ab4aa7c69264
+SHA256sum: 8a5c1064cd94b43175b7d5844cfe4565fb0628c20096856dc33ca8824cd39204
+Description:  POSIX thread library
+
+Package: librt
+Version: 0.9.33.2-1
+Depends: libpthread
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 4931
+Filename: librt_0.9.33.2-1_ar71xx.ipk
+Size: 5705
+MD5Sum: c6c400efc444f9308d192e6d354c0611
+SHA256sum: 41f5433da4277ec1110831d99545e3aa88772fcf1b00af5df9e3e001e9d4d540
+Description:  POSIX.1b RealTime extension library
+
+Package: libstdcpp
+Version: 4.8-linaro-1
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 254374
+Filename: libstdcpp_4.8-linaro-1_ar71xx.ipk
+Size: 253434
+MD5Sum: e6ed68df788a0ace1c3b1917207d7a96
+SHA256sum: 049f64ca017e0b818e959576a87189823826c1ac6f01301edaef23d3ab3b24f9
+Description:  GNU Standard C++ Library v3
+
+Package: libthread-db
+Version: 0.9.33.2-1
+Source: feeds/base/package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 7423
+Filename: libthread-db_0.9.33.2-1_ar71xx.ipk
+Size: 8214
+MD5Sum: df6b381dec20ee572ed1290268a4330d
+SHA256sum: 324dc6fcf7c3ddb9d79e41553420da9f21ef3573164ce697a8062443fc3eb4b4
+Description:  POSIX thread library debugging support
+
+Package: openssl-util
+Version: 1.0.2j-1
+Depends: libc, libopenssl
+Source: feeds/base/package/libs/openssl
+License: OpenSSL
+LicenseFiles: LICENSE
+Section: utils
+Architecture: ar71xx
+Installed-Size: 197266
+Filename: openssl-util_1.0.2j-1_ar71xx.ipk
+Size: 195603
+MD5Sum: 5de3c970430b0502e33f47ffb26db84e
+SHA256sum: af0c0bbb0496a54f1445a5af499611de56ed76dbd9910c327de85b15c82e8ff8
+Description:  The OpenSSL Project is a collaborative effort to develop a robust,
+ commercial-grade, full-featured, and Open Source toolkit implementing the Secure
+ Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
+ as a full-strength general purpose cryptography library.
+ This package contains the OpenSSL command-line utility.
+
+Package: tang
+Version: 4-1
+Depends: libc, http-parser, xinetd, jose
+Source: package/tang-v4
+Section: utils
+Architecture: ar71xx
+Installed-Size: 7198
+Filename: tang_4-1_ar71xx.ipk
+Size: 7967
+MD5Sum: 6f87b86d0c2af3c46df16a0b83093863
+SHA256sum: c2eeeb5d242429c10bbff1cf0c9a652c6f798f839761f70f2e44774131be7786
+Description:  Tang is a small daemon for binding data to the presence of a third party.
+
+Package: zlib
+Version: 1.2.11-1
+Depends: libc
+Source: feeds/base/package/libs/zlib
+License: Zlib
+LicenseFiles: README
+Section: libs
+Architecture: ar71xx
+Installed-Size: 38936
+Filename: zlib_1.2.11-1_ar71xx.ipk
+Size: 39692
+MD5Sum: ce7f0e0129b71f600c1ac3bfb7c775cb
+SHA256sum: a5a92509c2c0a0e3b1cda59132f1c13ca9a12aa5f57310f78a9533d5b094e560
+Description:  zlib is a lossless data-compression library.
+ This package includes the shared library.
+

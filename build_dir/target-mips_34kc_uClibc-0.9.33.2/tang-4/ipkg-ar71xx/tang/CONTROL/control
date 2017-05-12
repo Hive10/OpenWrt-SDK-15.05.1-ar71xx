@@ -1,0 +1,8 @@
+Package: tang
+Version: 4-1
+Depends: libc, http-parser, xinetd, jose
+Source: package/tang-v4
+Section: utils
+Architecture: ar71xx
+Installed-Size: 7198
+Description:  Tang is a small daemon for binding data to the presence of a third party.

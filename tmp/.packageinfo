@@ -1,7 +1,7 @@
 Source-Makefile: package/tang-v4/Makefile
 Package: tang
 Version: 4-1
-Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libhttp_parser +xinetd +jose
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +http-parser +xinetd +jose
 Conflicts: 
 Menu-Depends: 
 Provides: 
@@ -14,6 +14,572 @@ Type: ipkg
 Description: 	Tang is a small daemon for binding data to the presence of a third party.
 https://github.com/latchset/tang
 
+@@
+
+
+Source-Makefile: package/feeds/base/ocf-crypto-headers/Makefile
+Package: ocf-crypto-headers
+Version: 20110720-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Title: OCF-Linux cryptodev header
+Maintainer: 
+Source: 
+License: GPL-2.0
+LicenseFiles: cryptodev.h
+Type: ipkg
+Feed: base
+Description: OCF-Linux cryptodev header
+http://ocf-linux.sourceforge.net/
+
+@@
+
+
+Source-Makefile: package/feeds/base/openssl/Makefile
+Package: libopenssl
+Menu: 1
+Submenu: SSL
+Version: 1.0.2j-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: ocf-crypto-headers
+Section: libs
+Category: Libraries
+Title: Open source SSL toolkit (libraries)
+Maintainer: 
+Source: openssl-1.0.2j.tar.gz
+License: OpenSSL
+LicenseFiles: LICENSE
+Type: ipkg
+Feed: base
+Description: The OpenSSL Project is a collaborative effort to develop a robust,
+commercial-grade, full-featured, and Open Source toolkit implementing the Secure
+Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
+as a full-strength general purpose cryptography library.
+This package contains the OpenSSL shared libraries, needed by other programs.
+http://www.openssl.org/
+
+@@
+Config:
+source "feeds/base/package/libs/openssl/Config.in"
+@@
+
+Package: openssl-util
+Version: 1.0.2j-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: ocf-crypto-headers
+Section: utils
+Category: Utilities
+Title: Open source SSL toolkit (utility)
+Maintainer: 
+Source: openssl-1.0.2j.tar.gz
+License: OpenSSL
+LicenseFiles: LICENSE
+Type: ipkg
+Feed: base
+Description: The OpenSSL Project is a collaborative effort to develop a robust,
+commercial-grade, full-featured, and Open Source toolkit implementing the Secure
+Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well
+as a full-strength general purpose cryptography library.
+This package contains the OpenSSL command-line utility.
+http://www.openssl.org/
+
+@@
+
+
+Source-Makefile: package/feeds/base/toolchain/Makefile
+Package: libc
+Version: <LIBC_VERSION>-1
+Depends: +libgcc
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Base system
+Title: C library
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Source: 
+License: GPL-3.0-with-GCC-exception
+Type: ipkg
+Feed: base
+Description: C library
+Felix Fietkau <nbd@openwrt.org>
+@@
+Config:
+	menu "Configuration"
+	depends on EXTERNAL_TOOLCHAIN && PACKAGE_libc
+
+	config LIBC_ROOT_DIR
+		string
+		prompt "libc shared library base directory"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libc
+		default TOOLCHAIN_ROOT  if !NATIVE_TOOLCHAIN
+		default "/"  if NATIVE_TOOLCHAIN
+
+	config LIBC_FILE_SPEC
+		string
+		prompt "libc shared library files (use wildcards)"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libc
+		default "./lib/ld{-*.so,-linux*.so.*} ./lib/lib{anl,c,cidn,crypt,dl,m,nsl,nss_dns,nss_files,resolv,util}{-*.so,.so.*}"
+
+	endmenu
+@@
+
+Package: libgcc
+Version: <LIBGCC_VERSION>-1
+Depends: 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Base system
+Title: GCC support library
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Source: 
+License: GPL-3.0-with-GCC-exception
+Type: ipkg
+Feed: base
+Description: GCC support library
+http://gcc.gnu.org/
+Felix Fietkau <nbd@openwrt.org>
+@@
+Config:
+	menu "Configuration"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libgcc
+
+	config LIBGCC_ROOT_DIR
+		string
+		prompt "libgcc shared library base directory"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libgcc
+		default TOOLCHAIN_ROOT  if !NATIVE_TOOLCHAIN
+		default "/"  if NATIVE_TOOLCHAIN
+
+	config LIBGCC_FILE_SPEC
+		string
+		prompt "libgcc shared library files (use wildcards)"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libgcc
+		default "./lib/libgcc_s.so.*"
+
+	endmenu
+@@
+
+Package: libatomic
+Version: <LIBGCC_VERSION>-1
+Depends: +libgcc
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Base system
+Title: Atomic support library
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Source: 
+License: GPL-3.0-with-GCC-exception
+Type: ipkg
+Feed: base
+Description: Atomic support library
+http://gcc.gnu.org/
+Felix Fietkau <nbd@openwrt.org>
+@@
+Config:
+	menu "Configuration"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libatomic
+
+	config LIBATOMIC_ROOT_DIR
+		string
+		prompt "libatomic shared library base directory"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libatomic
+		default TOOLCHAIN_ROOT  if !NATIVE_TOOLCHAIN
+		default "/"  if NATIVE_TOOLCHAIN
+
+	config LIBATOMIC_FILE_SPEC
+		string
+		prompt "libatomic shared library files (use wildcards)"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libatomic
+		default "./lib/libatomic.so.*"
+
+	endmenu
+@@
+
+Package: libssp
+Version: <LIBGCC_VERSION>-1
+Depends:  @SSP_SUPPORT
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Base system
+Title: GCC support library
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Source: 
+License: GPL-3.0-with-GCC-exception
+Type: ipkg
+Feed: base
+Description: GCC support library
+http://gcc.gnu.org/
+Felix Fietkau <nbd@openwrt.org>
+@@
+Config:
+	menu "Configuration"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libssp
+
+	config LIBSSP_ROOT_DIR
+		string
+		prompt "libssp shared library base directory"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libssp
+		default TOOLCHAIN_ROOT  if !NATIVE_TOOLCHAIN
+		default "/"  if NATIVE_TOOLCHAIN
+
+	config LIBSSP_FILE_SPEC
+		string
+		prompt "libssp shared library files (use wildcards)"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libssp
+		default "./lib/libssp.so.*"
+
+	endmenu
+@@
+
+Package: libstdcpp
+Version: <LIBGCC_VERSION>-1
+Depends: 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Base system
+Title: GNU Standard C++ Library v3
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Source: 
+License: GPL-3.0-with-GCC-exception
+Type: ipkg
+Feed: base
+Description: GNU Standard C++ Library v3
+http://gcc.gnu.org/
+Felix Fietkau <nbd@openwrt.org>
+@@
+Config:
+	menu "Configuration"
+	depends on EXTERNAL_TOOLCHAIN && PACKAGE_libstdcpp
+
+	config LIBSTDCPP_ROOT_DIR
+		string
+		prompt "libstdcpp shared library base directory"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libstdcpp
+		default TOOLCHAIN_ROOT  if !NATIVE_TOOLCHAIN
+		default "/"  if NATIVE_TOOLCHAIN
+
+	config LIBSTDCPP_FILE_SPEC
+		string
+		prompt "libstdc++ shared library files (use wildcards)"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libstdcpp
+		default "./lib/libstdc++.so.*"
+
+	endmenu
+@@
+
+Package: libpthread
+Version: <LIBC_VERSION>-1
+Depends: +libgcc
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Base system
+Title: POSIX thread library
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Source: 
+License: GPL-3.0-with-GCC-exception
+Type: ipkg
+Feed: base
+Description: POSIX thread library
+Felix Fietkau <nbd@openwrt.org>
+@@
+Config:
+	menu "Configuration"
+	depends on EXTERNAL_TOOLCHAIN && PACKAGE_libpthread
+
+	config LIBPTHREAD_ROOT_DIR
+		string
+		prompt "libpthread shared library base directory"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libpthread
+		default TOOLCHAIN_ROOT  if !NATIVE_TOOLCHAIN
+		default "/"  if NATIVE_TOOLCHAIN
+
+	config LIBPTHREAD_FILE_SPEC
+		string
+		prompt "libpthread shared library files (use wildcards)"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libpthread
+		default "./lib/libpthread{-*.so,.so.*}"
+
+	endmenu
+@@
+
+Package: libthread-db
+Version: <LIBC_VERSION>-1
+Depends: @!USE_MUSL
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Base system
+Title: POSIX thread library debugging support
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Source: 
+License: GPL-3.0-with-GCC-exception
+Type: ipkg
+Feed: base
+Description: POSIX thread library debugging support
+Felix Fietkau <nbd@openwrt.org>
+@@
+
+Package: librt
+Version: <LIBC_VERSION>-1
+Depends: +libpthread
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Base system
+Title: POSIX.1b RealTime extension library
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Source: 
+License: GPL-3.0-with-GCC-exception
+Type: ipkg
+Feed: base
+Description: POSIX.1b RealTime extension library
+Felix Fietkau <nbd@openwrt.org>
+@@
+Config:
+	menu "Configuration"
+	depends on EXTERNAL_TOOLCHAIN && PACKAGE_librt
+
+	config LIBRT_ROOT_DIR
+		string
+		prompt "librt shared library base directory"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_librt
+		default TOOLCHAIN_ROOT  if !NATIVE_TOOLCHAIN
+		default "/"  if NATIVE_TOOLCHAIN
+
+	config LIBRT_FILE_SPEC
+		string
+		prompt "librt shared library files (use wildcards)"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_librt
+		default "./lib/librt{-*.so,.so.*}"
+
+	endmenu
+@@
+
+Package: libgfortran
+Version: <LIBGCC_VERSION>-1
+Depends:  @INSTALL_GFORTRAN
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Base system
+Title: GFortran support library
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Source: 
+License: GPL-3.0-with-GCC-exception
+Type: ipkg
+Feed: base
+Description: GFortran support library
+http://gcc.gnu.org/
+Felix Fietkau <nbd@openwrt.org>
+@@
+Config:
+	menu "Configuration"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libgfortran
+
+	config LIBGFORTRAN_ROOT_DIR
+		string
+		prompt "libgfortran shared library base directory"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libgfortran
+		default TOOLCHAIN_ROOT  if !NATIVE_TOOLCHAIN
+		default "/"  if NATIVE_TOOLCHAIN
+
+	config LIBGFORTRAN_FILE_SPEC
+		string
+		prompt "libgfortran shared library files (use wildcards)"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_libgfortran
+		default "./usr/lib/libgfortran.so.*"
+
+	endmenu
+@@
+
+Package: ldd
+Version: <LIBC_VERSION>-1
+Depends: @!USE_MUSL
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Title: LDD trace utility
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Source: 
+License: GPL-3.0-with-GCC-exception
+Type: ipkg
+Feed: base
+Description: LDD trace utility
+Felix Fietkau <nbd@openwrt.org>
+@@
+Config:
+	menu "Configuration"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_ldd
+
+	config LDD_ROOT_DIR
+		string
+		prompt "ldd trace utility base directory"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_ldd
+		default TOOLCHAIN_ROOT  if !NATIVE_TOOLCHAIN
+		default "/"  if NATIVE_TOOLCHAIN
+
+	config LDD_FILE_SPEC
+		string
+		prompt "ldd trace utility file"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_ldd
+		default "./usr/bin/ldd"
+
+	endmenu
+@@
+
+Package: ldconfig
+Version: <LIBC_VERSION>-1
+Depends: @!USE_MUSL
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Title: Shared library path configuration
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Source: 
+License: GPL-3.0-with-GCC-exception
+Type: ipkg
+Feed: base
+Description: Shared library path configuration
+Felix Fietkau <nbd@openwrt.org>
+@@
+Config:
+	menu "Configuration"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_ldconfig
+
+	config LDCONFIG_ROOT_DIR
+		string
+		prompt "ldconfig base directory"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_ldconfig
+		default TOOLCHAIN_ROOT  if !NATIVE_TOOLCHAIN
+		default "/"  if NATIVE_TOOLCHAIN
+
+	config LDCONFIG_FILE_SPEC
+		string
+		prompt "ldconfig file"
+		depends on EXTERNAL_TOOLCHAIN && PACKAGE_ldconfig
+		default "./sbin/ldconfig"
+
+	endmenu
+@@
+
+
+Source-Makefile: package/feeds/base/zlib/Makefile
+Package: zlib
+Version: 1.2.8-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Title: Library implementing the deflate compression method
+Maintainer: 
+Source: zlib-1.2.8.tar.gz
+License: Zlib
+LicenseFiles: README
+Type: ipkg
+Feed: base
+Description: Library implementing the deflate compression method
+http://www.zlib.net/
+
+@@
+
+
+Source-Makefile: package/feeds/packages/http-parser/Makefile
+Package: http-parser
+Version: 2.7.1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Title: A library to parse http request and response
+Maintainer: Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
+Source: http-parser-2.7.1.tar.gz
+License: MIT
+LicenseFiles: LICENSE-MIT
+Type: ipkg
+Feed: packages
+Description:   A parser for HTTP messages written in C. It parses both requests and responses. 
+  The parser is designed to be used in performance HTTP applications. 
+  It does not make any syscalls nor allocations, it does not buffer data, 
+  it can be interrupted at anytime. Depending on your architecture, 
+  it only requires about 40 bytes of data per message stream 
+  (in a web server that is per connection).
+https://github.com/nodejs/http-parser
+Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
+@@
+
+
+Source-Makefile: package/feeds/packages/jansson/Makefile
+Package: jansson
+Version: 2.10-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Title: Jansson library
+Maintainer: Gergely Kiss <mail.gery@gmail.com>
+Source: jansson-2.10.tar.bz2
+License: MIT
+Type: ipkg
+Feed: packages
+Description:   Jansson is a C library for encoding, decoding and manipulating JSON data
+http://www.digip.org/jansson/
+Gergely Kiss <mail.gery@gmail.com>
+@@
+
+
+Source-Makefile: package/feeds/packages/jose/Makefile
+Package: jose
+Version: 7-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib +jansson +libopenssl +libpthread
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Extra packages
+Title: Provides a full crypto stack including key generation, signing and encryption.
+Maintainer: Tibor Dudlák <tibor.dudlak@gmail.com>
+Source: jose-7.tar.bz2
+Type: ipkg
+Feed: packages
+Description: 	José is a command line utility for performing various tasks on JSON
+	Object Signing and Encryption (JOSE) objects. José provides a full
+	crypto stack including key generation, signing and encryption.
+https://github.com/latchset/jose
+Tibor Dudlák <tibor.dudlak@gmail.com>
 @@
 
 

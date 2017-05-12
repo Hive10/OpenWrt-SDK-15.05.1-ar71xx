@@ -24,12 +24,12 @@ include $(INCLUDE_DIR)/package.mk
 define Package/tang
   SECTION:=utils
   TITLE:=tang v$(PKG_VERSION) - daemon for binding data to the presence of a third party
-  DEPENDS:=+libhttp_parser +xinetd +jose
+  DEPENDS:=+http-parser +xinetd +jose
   URL:=https://github.com/latchset/tang
 endef
 
 CFLAGS += -fhonour-copts 
-TARGET_CFLAGS += $(FPIC) -I$(1)/usr/include -std=gnu99 
+TARGET_CFLAGS += $(FPIC) -std=gnu99 -I$(1)/usr/include  -Wl,-rpath-link=$(1)/usr/lib
 TARGET_LDFLAGS += -Wl,-rpath-link=$(1)/usr/lib
 
 define Build/Prepare
