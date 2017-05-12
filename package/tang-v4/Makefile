@@ -50,11 +50,12 @@ define Build/Configure
 endef
 
 define Package/tang/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/$(PKG_NAME) $(1)/usr/bin/
-	mkdir -p $(PKG_INSTALL_DIR)/etc/xinetd.d/
-	$(CP) $(PKG_BUILD_DIR)/tangd.xinetd $(1)/etc/xinetd.d/
-	mkdir -p $(1)/usr/share/tangd-db	
+	$(INSTALL_DIR) $(1)/usr/libexec
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/$(PKG_NAME)d 		$(1)/usr/libexec/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/$(PKG_NAME)d-update	$(1)/usr/libexec/
+	mkdir -p $(1)/etc/xinetd.d/
+	$(CP) $(PKG_BUILD_DIR)/tangd.xinetd 				$(1)/etc/xinetd.d/
+	mkdir -p $(1)/var/db/tang/
 endef
 
 $(eval $(call BuildPackage,tang))
