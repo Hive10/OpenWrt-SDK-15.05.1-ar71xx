@@ -24,7 +24,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/tang
   SECTION:=utils
   TITLE:=tang v$(PKG_VERSION) - daemon for binding data to the presence of a third party
-  DEPENDS:=+http-parser +xinetd +jose
+  DEPENDS:=+http-parser +xinetd +jose +bash
   URL:=https://github.com/latchset/tang
 endef
 
@@ -54,8 +54,11 @@ define Package/tang/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/$(PKG_NAME)d 		$(1)/usr/libexec/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/$(PKG_NAME)d-update	$(1)/usr/libexec/
 	mkdir -p $(1)/etc/xinetd.d/
-	$(CP) $(PKG_BUILD_DIR)/tangd.xinetd 				$(1)/etc/xinetd.d/
-	mkdir -p $(1)/var/db/tang/
+	$(CP) $(PKG_BUILD_DIR)/tangd.xinetd				$(1)/etc/xinetd.d/$(PKG_NAME)
+	mkdir -p $(1)/var/db/$(PKG_NAME)/
+	chmod 2570 $(1)/var/db/$(PKG_NAME)/
+	mkdir -p $(1)/var/cache/$(PKG_NAME)/
+	chmod 750 $(1)/var/cache/$(PKG_NAME)/
 endef
 
 $(eval $(call BuildPackage,tang))
