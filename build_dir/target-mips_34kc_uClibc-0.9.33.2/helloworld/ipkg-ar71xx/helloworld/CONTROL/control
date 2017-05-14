@@ -4,6 +4,6 @@ Depends: libc
 Source: package/helloworld
 Section: utils
 Architecture: ar71xx
-Installed-Size: 1342
+Installed-Size: 1771
 Description:  If you can't figure out what this program does, you're probably
  brain-dead and need immediate medical attention.

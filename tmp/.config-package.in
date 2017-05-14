@@ -8,9 +8,9 @@ menu "Utilities"
 		tristate "helloworld......................... Helloworld -- prints a snarky message"
 		default y if DEFAULT_helloworld
 		default m if ALL
-		select PACKAGE_librt if USE_GLIBC
-		select PACKAGE_libc
 		select PACKAGE_libpthread if USE_GLIBC
+		select PACKAGE_libc
+		select PACKAGE_librt if USE_GLIBC
 		select PACKAGE_libssp if SSP_SUPPORT
 		help
 		 If you can't figure out what this program does, you're probably
