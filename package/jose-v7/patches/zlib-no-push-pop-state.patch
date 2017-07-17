@@ -1,9 +1,0 @@
---- jose-v7/jose-zlib.pc.in	2017-05-12 16:51:53.084588383 +0200
-+++ jose-v7/jose-zlib.pc.in	2017-05-12 16:52:17.154550055 +0200
-@@ -8,5 +8,5 @@
- Requires: jose
- Requires.private: zlib
- Version: @VERSION@
--Libs: -Wl,--push-state -Wl,--no-as-needed -L${libdir} -ljose-zlib -Wl,--pop-state
-+Libs: -Wl,--no-as-needed -L${libdir} -ljose-zlib
- Cflags: -I${includedir}
