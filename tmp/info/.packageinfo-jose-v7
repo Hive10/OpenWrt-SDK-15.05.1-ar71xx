@@ -5,7 +5,7 @@ Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib 
 Conflicts: 
 Menu-Depends: 
 Provides: 
-Section: utils
+Section: libs
 Category: Extra packages
 Title: Provides a full crypto stack including key generation, signing and encryption.
 Maintainer: Tibor Dudlák <tibor.dudlak@gmail.com>
