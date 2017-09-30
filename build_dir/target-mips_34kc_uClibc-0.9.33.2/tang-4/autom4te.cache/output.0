@@ -587,6 +587,7 @@ am__EXEEXT_TRUE
 LTLIBOBJS
 LIB@&t@OBJS
 TANG_CFLAGS
+SD_ACTIVATE
 jose_openssl_LIBS
 jose_openssl_CFLAGS
 jose_zlib_LIBS
@@ -4422,13 +4423,15 @@ fi
 #test -n "$SD_ACTIVATE" || AC_MSG_ERROR([systemd-socket-activate required!])
 
 #AC_MSG_CHECKING([systemd-socket-activate inetd flag])
-#if $SD_ACTIVATE --help | grep -q inetd; then
-#    SD_ACTIVATE="$SD_ACTIVATE --inetd"
-#    AC_MSG_RESULT([--inetd])
-#    AC_SUBST(SD_ACTIVATE)
-#else
-#    AC_MSG_RESULT([(default)])
-#fi
+if $SD_ACTIVATE --help | grep -q inetd; then
+    SD_ACTIVATE="$SD_ACTIVATE --inetd"
+    { $as_echo "$as_me:${as_lineno-$LINENO}: result: --inetd" >&5
+$as_echo "--inetd" >&6; }
+    
+else
+    { $as_echo "$as_me:${as_lineno-$LINENO}: result: (default)" >&5
+$as_echo "(default)" >&6; }
+fi
 
 TANG_CFLAGS="\
 -Wall \

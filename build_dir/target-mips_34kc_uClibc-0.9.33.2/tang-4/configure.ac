@@ -47,13 +47,13 @@ PKG_CHECK_MODULES([jose_openssl], [jose-openssl >= 5])
 #test -n "$SD_ACTIVATE" || AC_MSG_ERROR([systemd-socket-activate required!])
 
 #AC_MSG_CHECKING([systemd-socket-activate inetd flag])
-#if $SD_ACTIVATE --help | grep -q inetd; then
-#    SD_ACTIVATE="$SD_ACTIVATE --inetd"
-#    AC_MSG_RESULT([--inetd])
-#    AC_SUBST(SD_ACTIVATE)
-#else
-#    AC_MSG_RESULT([(default)])
-#fi
+if $SD_ACTIVATE --help | grep -q inetd; then
+    SD_ACTIVATE="$SD_ACTIVATE --inetd"
+    AC_MSG_RESULT([--inetd])
+    AC_SUBST(SD_ACTIVATE)
+else
+    AC_MSG_RESULT([(default)])
+fi
 
 TANG_CFLAGS="\
 -Wall \

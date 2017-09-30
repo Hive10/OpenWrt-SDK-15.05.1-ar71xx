@@ -17,7 +17,7 @@ old_library='libjansson.a'
 inherited_linker_flags=''
 
 # Libraries that this one depends upon.
-dependency_libs=' -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib -lm'
+dependency_libs=' -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/target-mips_34kc_uClibc-0.9.33.2/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib -L/home/tdudlak/BP/OpenWrt-SDK-15.05.1-ar71xx/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2/lib'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''

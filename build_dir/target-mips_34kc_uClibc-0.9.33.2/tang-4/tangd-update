@@ -31,8 +31,8 @@ fi
 
 [ ! -d "$2" ] && mkdir -p -m 0700 "$2"
 
-src=`realpath "$1"`
-dst=`realpath "$2"`
+src=`readlink -f "$1"`
+dst=`readlink -f "$2"`
 
 for jwk in $src/*.jwk; do
     pub=`jose pub -i "$jwk"`

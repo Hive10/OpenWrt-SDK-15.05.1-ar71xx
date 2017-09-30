@@ -5,7 +5,7 @@ service tangd
     wait            = no
     user            = root
     server          = /usr/libexec/tangd
-    server_args     = /var/db/tang/
+    server_args     = /var/cache/tang/
     log_on_success  += USERID
     log_on_failure  += USERID
     disable         = no

@@ -162,13 +162,35 @@ main(int argc, char *argv[])
         fprintf(stderr, "Usage: %s <cachedir>\n", argv[0]);
         return EXIT_FAILURE;
     }
-
+    printf("Ladadadat:               %s \n",  argv[1]);
+    
     if (stat(argv[1], &st) != 0) {
         fprintf(stderr, "Error calling stat() on path: %s: %m\n", argv[1]);
         return EXIT_FAILURE;
     }
 
     if (!S_ISDIR(st.st_mode)) {
+        switch (st.st_mode & S_IFMT) {
+            case S_IFBLK:  printf("block device\n");            break;
+            case S_IFCHR:  printf("character device\n");        break;
+            case S_IFDIR:  printf("directory\n");               break;
+            case S_IFIFO:  printf("FIFO/pipe\n");               break;
+            case S_IFLNK:  printf("symlink\n");                 break;
+            case S_IFREG:  printf("regular file\n");            break;
+            case S_IFSOCK: printf("socket\n");                  break;
+            default:       printf("unknown?\n");                break;
+        }
+        printf("I-node number:            %ld\n", (long) st.st_ino);
+
+        printf("Mode:                     %lo (octal)\n",
+            (unsigned long) st.st_mode);
+
+        printf("Link count:               %ld\n", (long) st.st_nlink);
+        printf("Ownership:                UID=%ld   GID=%ld\n",(long) st.st_uid, (long) st.st_gid);
+
+        printf("Preferred I/O block size: %ld bytes\n",(long) st.st_blksize);
+        printf("File size:                %lld bytes\n",(long long) st.st_size);
+        printf("Blocks allocated:         %lld\n",(long long) st.st_blocks);
         fprintf(stderr, "Path is not a directory: %s\n", argv[1]);
         return EXIT_FAILURE;
     }

@@ -1,7 +1,7 @@
 Source-Makefile: package/tang-v4/Makefile
 Package: tang
 Version: 4-1
-Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +http-parser +xinetd +jose
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libhttp-parser +xinetd +jose +bash
 Conflicts: 
 Menu-Depends: 
 Provides: 
@@ -13,6 +13,77 @@ Source:
 Type: ipkg
 Description: 	Tang is a small daemon for binding data to the presence of a third party.
 https://github.com/latchset/tang
+
+@@
+
+
+Source-Makefile: package/feeds/base/ncurses/Makefile
+Package: terminfo
+Version: 5.9-2
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: libncurses
+Build-Depends: ncurses/host
+Build-Types: host
+Section: libs
+Category: Libraries
+Title: Terminal Info Database (ncurses)
+Maintainer: 
+Source: ncurses-5.9.tar.gz
+License: MIT
+LicenseFiles: README
+Type: ipkg
+Feed: base
+Description: Terminal Info Database (ncurses)
+http://www.gnu.org/software/ncurses/
+
+@@
+
+Package: libncurses
+Version: 5.9-2
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +terminfo
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: libncurses
+Build-Depends: ncurses/host
+Build-Types: host
+Section: libs
+Category: Libraries
+Title: Terminal handling library
+Maintainer: 
+Source: ncurses-5.9.tar.gz
+License: MIT
+LicenseFiles: README
+Type: ipkg
+Feed: base
+Description: Terminal handling library
+http://www.gnu.org/software/ncurses/
+
+@@
+
+Package: libncursesw
+Version: 5.9-2
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: libncursesw
+Build-Depends: ncurses/host
+Build-Types: host
+Section: libs
+Category: Libraries
+Title: Terminal handling library (Unicode)
+Maintainer: 
+Source: ncurses-5.9.tar.gz
+License: MIT
+LicenseFiles: README
+Type: ipkg
+Feed: base
+Description: Terminal handling library (Unicode)
+http://www.gnu.org/software/ncurses/
 
 @@
 
@@ -513,30 +584,27 @@ http://www.zlib.net/
 @@
 
 
-Source-Makefile: package/feeds/packages/http-parser/Makefile
-Package: http-parser
-Version: 2.7.1-1
-Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Source-Makefile: package/feeds/packages/bash/Makefile
+Package: bash
+Version: 4.3.39-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libncurses
 Conflicts: 
 Menu-Depends: 
 Provides: 
-Section: libs
-Category: Libraries
-Title: A library to parse http request and response
-Maintainer: Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
-Source: http-parser-2.7.1.tar.gz
-License: MIT
-LicenseFiles: LICENSE-MIT
+Section: utils
+Category: Utilities
+Title: The GNU Bourne Again SHell
+Maintainer: Marcel Denia <naoir@gmx.net>
+Source: bash-4.3.tar.gz
+License: GPL-3.0+
+LicenseFiles: COPYING
 Type: ipkg
 Feed: packages
-Description:   A parser for HTTP messages written in C. It parses both requests and responses. 
-  The parser is designed to be used in performance HTTP applications. 
-  It does not make any syscalls nor allocations, it does not buffer data, 
-  it can be interrupted at anytime. Depending on your architecture, 
-  it only requires about 40 bytes of data per message stream 
-  (in a web server that is per connection).
-https://github.com/nodejs/http-parser
-Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
+Description:   Bash is an sh-compatible command language interpreter that executes
+  commands read from the standard input or from a file. Bash also
+  incorporates useful features from the Korn and C shells (ksh and csh).
+http://www.gnu.org/software/bash/
+Marcel Denia <naoir@gmx.net>
 @@
 
 
@@ -568,7 +636,7 @@ Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib 
 Conflicts: 
 Menu-Depends: 
 Provides: 
-Section: utils
+Section: libs
 Category: Extra packages
 Title: Provides a full crypto stack including key generation, signing and encryption.
 Maintainer: Tibor Dudlák <tibor.dudlak@gmail.com>
@@ -580,6 +648,59 @@ Description: 	José is a command line utility for performing various tasks on JS
 	crypto stack including key generation, signing and encryption.
 https://github.com/latchset/jose
 Tibor Dudlák <tibor.dudlak@gmail.com>
+@@
+
+
+Source-Makefile: package/feeds/packages/libhttp-parser/Makefile
+Package: libhttp-parser
+Version: 2.7.1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Title: A library to parse http request and response
+Maintainer: Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
+Source: http-parser-2.7.1.tar.gz
+License: MIT
+LicenseFiles: LICENSE-MIT
+Type: ipkg
+Feed: packages
+Description:   A parser for HTTP messages written in C. It parses both requests and responses.
+  The parser is designed to be used in performance HTTP applications.
+  It does not make any syscalls nor allocations, it does not buffer data,
+  it can be interrupted at anytime. Depending on your architecture,
+  it only requires about 40 bytes of data per message stream
+  (in a web server that is per connection).
+https://github.com/nodejs/http-parser
+Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
+@@
+
+
+Source-Makefile: package/feeds/packages/xinetd/Makefile
+Package: xinetd
+Version: 2.3.15-3
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Title: A powerful and secure super-server
+Maintainer: 
+Source: xinetd-2.3.15.tar.gz
+License: xinetd
+LicenseFiles: COPYRIGHT
+Type: ipkg
+Feed: packages
+Description: 	xinetd has access control mechanisms, extensive logging capabilities,
+	the ability to make services available based on time, can place limits
+	on the number of servers that can be started, and has deployable
+	defence mechanisms to protect against port scanners, among other
+	things.
+http://www.xinetd.org/
+
 @@
 
 

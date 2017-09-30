@@ -1,0 +1,11 @@
+tang-v4
+feeds/base/ncurses
+feeds/base/ocf-crypto-headers
+feeds/base/openssl
+feeds/base/toolchain
+feeds/base/zlib
+feeds/packages/bash
+feeds/packages/jansson
+feeds/packages/jose
+feeds/packages/libhttp-parser
+feeds/packages/xinetd
