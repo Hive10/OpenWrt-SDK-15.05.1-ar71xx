@@ -24,7 +24,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/tang
   SECTION:=utils
   TITLE:=tang v$(PKG_VERSION) - daemon for binding data to the presence of a third party
-  DEPENDS:=+http-parser +xinetd +jose +bash
+  DEPENDS:=+libhttp-parser +xinetd +jose +bash
   URL:=https://github.com/latchset/tang
 endef
 
