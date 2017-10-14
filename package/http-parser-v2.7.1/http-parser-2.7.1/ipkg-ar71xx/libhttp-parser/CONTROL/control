@@ -8,14 +8,9 @@ Section: libs
 Maintainer: Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
 Architecture: ar71xx
 Installed-Size: 11979
-Filename: libhttp-parser_2.7.1-1_ar71xx.ipk
-Size: 12823
-MD5Sum: 86ec35c2dbeb8dc59e14642b2b8a5c64
-SHA256sum: 2c58ed6fb391bfa9f1968c4b19ba95de4b58dd5105106e7a9c98378f5cf2b184
 Description:  A parser for HTTP messages written in C. It parses both requests and responses.
  The parser is designed to be used in performance HTTP applications.
  It does not make any syscalls nor allocations, it does not buffer data,
  it can be interrupted at anytime. Depending on your architecture,
  it only requires about 40 bytes of data per message stream
  (in a web server that is per connection).
-

@@ -4,20 +4,20 @@ menuconfig IMAGEOPT
 source "package/*/image-config.in"
 menu "Libraries"
 
-	config PACKAGE_http-parser
-		tristate "http-parser................. A library to parse http request and response"
-		default y if DEFAULT_http-parser
+	config PACKAGE_libhttp-parser
+		tristate "libhttp-parser.............. A library to parse http request and response"
+		default y if DEFAULT_libhttp-parser
 		default m if ALL
 		select PACKAGE_libc
 		select PACKAGE_librt if USE_GLIBC
-		select PACKAGE_libpthread if USE_GLIBC
 		select PACKAGE_libssp if SSP_SUPPORT
+		select PACKAGE_libpthread if USE_GLIBC
 		help
-		 A parser for HTTP messages written in C. It parses both requests and responses. 
-		   The parser is designed to be used in performance HTTP applications. 
-		   It does not make any syscalls nor allocations, it does not buffer data, 
-		   it can be interrupted at anytime. Depending on your architecture, 
-		   it only requires about 40 bytes of data per message stream 
+		 A parser for HTTP messages written in C. It parses both requests and responses.
+		   The parser is designed to be used in performance HTTP applications.
+		   It does not make any syscalls nor allocations, it does not buffer data,
+		   it can be interrupted at anytime. Depending on your architecture,
+		   it only requires about 40 bytes of data per message stream
 		   (in a web server that is per connection).
 		 https://github.com/nodejs/http-parser
 		 Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
