@@ -14,7 +14,7 @@ PKG_RELEASE=1
 PKG_MAINTAINER:=Ramanathan Sivagurunathan <ramzthecoder@gmail.com>
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE-MIT
-
+PKG_BUILD_DIR:=$(SRC_NAME)-$(PKG_VERSION)
 PKG_SOURCE:=$(SRC_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/nodejs/$(SRC_NAME)/archive/v$(PKG_VERSION)/
 PKH_HASH:=70409ad324e5de2da6a0f39e859e566d497c1ff0a249c0c38a5012df91b386b3
@@ -28,7 +28,7 @@ define Package/libhttp-parser
   URL:=https://github.com/nodejs/http-parser
 endef
 
-define Package/libhttp-parser/description
+define Package/$(PKG_NAME)/description
   A parser for HTTP messages written in C. It parses both requests and responses.
   The parser is designed to be used in performance HTTP applications.
   It does not make any syscalls nor allocations, it does not buffer data,
@@ -49,10 +49,10 @@ define Build/InstallDev
 	( cd $(1)/usr/lib ; ln -s libhttp_parser.so.* libhttp_parser.so )
 endef
 
-define Package/libhttp-parser/install
+define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_BUILD_DIR)/libhttp_parser.so.* $(1)/usr/lib/
 	( cd $(1)/usr/lib ; ln -s libhttp_parser.so.* libhttp_parser.so )
 endef
 
-$(eval $(call BuildPackage,libhttp-parser))
+$(eval $(call BuildPackage,$(PKG_NAME)))
