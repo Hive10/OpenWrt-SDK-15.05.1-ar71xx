@@ -28,8 +28,8 @@ define Package/tang
   URL:=https://github.com/latchset/tang
 endef
 
-CFLAGS += -fhonour-copts 
-TARGET_CFLAGS += $(FPIC) -std=gnu99 -I$(1)/usr/include 
+CFLAGS += -fhonour-copts
+TARGET_CFLAGS += $(FPIC) -std=gnu99 -I$(1)/usr/include
 TARGET_LDFLAGS += -Wl,-rpath-link=$(1)/usr/lib
 
 define Build/Prepare
@@ -42,10 +42,7 @@ define Package/tang/description
 endef
 
 define Build/Configure
-	(cd $(PKG_BUILD_DIR); touch \
-	include.m4 \
-	Makefile.in \
-	);
+	(cd $(PKG_BUILD_DIR));
 	$(call Build/Configure/Default)
 endef
 
