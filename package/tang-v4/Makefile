@@ -29,7 +29,7 @@ define Package/tang
 endef
 
 CFLAGS += -fhonour-copts
-TARGET_CFLAGS += $(FPIC) -std=gnu99 -I$(1)/usr/include
+TARGET_CFLAGS += $(FPIC) -std=gnu99
 TARGET_LDFLAGS += -Wl,-rpath-link=$(1)/usr/lib
 
 define Build/Prepare
@@ -50,12 +50,7 @@ define Package/tang/install
 	$(INSTALL_DIR) $(1)/usr/libexec
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/$(PKG_NAME)d 		$(1)/usr/libexec/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/$(PKG_NAME)d-update	$(1)/usr/libexec/
-	mkdir -p $(1)/etc/xinetd.d/
 	$(CP) $(PKG_BUILD_DIR)/tangd.xinetd				$(1)/etc/xinetd.d/$(PKG_NAME)
-	mkdir -p $(1)/var/db/$(PKG_NAME)/
-	chmod 2570 $(1)/var/db/$(PKG_NAME)/
-	mkdir -p $(1)/var/cache/$(PKG_NAME)/
-	chmod 750 $(1)/var/cache/$(PKG_NAME)/
 endef
 
 $(eval $(call BuildPackage,tang))
