@@ -50,7 +50,10 @@ define Package/tang/install
 	$(INSTALL_DIR) $(1)/usr/libexec
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/$(PKG_NAME)d 		$(1)/usr/libexec/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/$(PKG_NAME)d-update	$(1)/usr/libexec/
-	$(CP) $(PKG_BUILD_DIR)/tangd.xinetd				$(1)/etc/xinetd.d/$(PKG_NAME)
+	$(INSTALL_DIR) $(1)/var/db/$(PKG_NAME)
+	$(INSTALL_DIR) $(1)/var/cache/$(PKG_NAME)
+	$(INSTALL_DIR) $(1)/etc/xinetd.d/
+	$(CP) $(PKG_BUILD_DIR)/tangd.xinetd				$(1)/etc/xinetd.d/
 endef
 
 $(eval $(call BuildPackage,tang))
