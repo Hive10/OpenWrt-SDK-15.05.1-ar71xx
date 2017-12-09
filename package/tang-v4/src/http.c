@@ -157,16 +157,13 @@ http_reply(const char *file, int line,
 
     fprintf(stderr, " => %d (%s:%d)\n", code, file, line);
 
-    FILE *fdstream = fdopen(STDOUT_FILENO, "a");
-    a = fprintf(fdstream, "HTTP/1.1 %d %s\r\n", code, msg);
-    // a = dprintf(STDOUT_FILENO, "HTTP/1.1 %d %s\r\n", code, msg);
+    a = dprintf(STDOUT_FILENO, "HTTP/1.1 %d %s\r\n", code, msg);
     if (a < 0)
         return a;
-    
+
 
     va_start(ap, fmt);
-    // b = vdprintf(STDOUT_FILENO, fmt ? fmt : "\r\n", ap);
-    b = vfprintf(fdstream, fmt ? fmt : "\r\n", ap);
+    b = vdprintf(STDOUT_FILENO, fmt ? fmt : "\r\n", ap);
     va_end(ap);
     return b < 0 ? b : a + b;
 }

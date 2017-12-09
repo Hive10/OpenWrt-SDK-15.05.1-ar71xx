@@ -29,8 +29,8 @@ define Package/tang
 endef
 
 CFLAGS += -fhonour-copts
-TARGET_CFLAGS += $(FPIC) -std=gnu99
-TARGET_LDFLAGS += -Wl,-rpath-link=$(1)/usr/lib
+TARGET_CFLAGS += $(FPIC) -std=gnu99 -D_GNU_SOURCE
+TARGET_LDFLAGS += -Wl,-rpath-link=$(1)/usr/lib  
 
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
