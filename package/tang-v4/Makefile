@@ -30,7 +30,7 @@ endef
 
 CFLAGS += -fhonour-copts
 TARGET_CFLAGS += $(FPIC) -std=gnu99 -D_GNU_SOURCE
-TARGET_LDFLAGS += -Wl,-rpath-link=$(1)/usr/lib  
+TARGET_LDFLAGS += -Wl,-rpath-link=$(1)/usr/lib
 
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
@@ -50,6 +50,7 @@ define Package/tang/install
 	$(INSTALL_DIR) $(1)/usr/libexec
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/$(PKG_NAME)d 		$(1)/usr/libexec/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/$(PKG_NAME)d-update	$(1)/usr/libexec/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/$(PKG_NAME)w		$(1)/usr/libexec/
 	$(INSTALL_DIR) $(1)/var/db/$(PKG_NAME)
 	$(INSTALL_DIR) $(1)/var/cache/$(PKG_NAME)
 	$(INSTALL_DIR) $(1)/etc/xinetd.d/

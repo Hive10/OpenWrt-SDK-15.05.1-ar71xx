@@ -1,12 +1,13 @@
 service tangd
 {
-    port            = 80
+    port            = 8888
     socket_type     = stream
     wait            = no
     user            = root
-    server          = /usr/libexec/tangd
+    server          = /usr/libexec/tangdw
     server_args     = /var/cache/tang/
     log_on_success  += USERID
     log_on_failure  += USERID
     disable         = no
 }
+# should be renamed to tangd
