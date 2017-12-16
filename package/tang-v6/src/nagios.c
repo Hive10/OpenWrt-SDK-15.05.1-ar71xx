@@ -225,8 +225,11 @@ curtime(void)
     struct timespec ts = {};
     double out = 0;
 
-    if (clock_gettime(CLOCK_MONOTONIC_RAW, &ts) == 0)
-        out = ((double) ts.tv_sec) + ((double) ts.tv_nsec) / 1000000000L;
+    if (clock_gettime(CLOCK_MONOTONIC_RAW, &ts) == 0) {
+        out = ts.tv_nsec;
+        out /= 1000000000L;
+        out += ts.tv_sec;
+    }
 
     return out;
 }
@@ -301,7 +304,7 @@ validate(const json_t *jws)
     json_t *keys = NULL;
     size_t sigs = 0;
 
-    jwkset = jose_b64_decode_json_load(json_object_get(jws, "payload"));
+    jwkset = jose_b64_dec_load(json_object_get(jws, "payload"));
     if (!jwkset)
         return NULL;
 
@@ -312,10 +315,10 @@ validate(const json_t *jws)
     for (size_t i = 0; i < json_array_size(keys); i++) {
         json_t *key = json_array_get(keys, i);
 
-        if (!jose_jwk_allowed(key, true, "verify"))
+        if (!jose_jwk_prm(NULL, key, true, "verify"))
             continue;
 
-        if (!jose_jws_verify(jws, key, NULL))
+        if (!jose_jws_ver(NULL, jws, NULL, key, true))
             return NULL;
 
         sigs++;
@@ -340,32 +343,34 @@ nagios_recover(conn_t *con, const char *host, const char *path,
     double e = 0;
     int r = 0;
 
-    if (jose_jwk_allowed(jwk, true, "verify")) {
+    if (jose_jwk_prm(NULL, jwk, true, "verify")) {
         *sig += 1;
         return true;
     }
 
-    if (!jose_jwk_allowed(jwk, true, "deriveKey"))
+    if (!jose_jwk_prm(NULL, jwk, true, "deriveKey"))
         return true;
 
-    kid = jose_jwk_thumbprint_json(jwk, NULL);
+    kid = jose_jwk_thp(NULL, jwk, "S256");
     if (!kid)
         return true;
 
-    lcl = json_pack("{s:O,s:O}",
+    lcl = json_pack("{s:O,s:O,s:s,s:[s]}",
                     "kty", json_object_get(jwk, "kty"),
-                    "crv", json_object_get(jwk, "crv"));
+                    "crv", json_object_get(jwk, "crv"),
+                    "alg", "ECMR",
+                    "key_ops", "deriveKey");
     if (!lcl)
         return false;
 
-    if (!jose_jwk_generate(lcl))
+    if (!jose_jwk_gen(NULL, lcl))
         return false;
 
-    exc = jose_jwk_exchange(lcl, jwk);
+    exc = jose_jwk_exc(NULL, lcl, jwk);
     if (!exc)
         return false;
 
-    if (!jose_jwk_clean(lcl))
+    if (!jose_jwk_pub(NULL, lcl))
         return false;
 
     body = json_dumps(lcl, JSON_SORT_KEYS | JSON_COMPACT);
@@ -406,12 +411,12 @@ nagios_recover(conn_t *con, const char *host, const char *path,
     }
 
     if (s == 0.0 || e == 0.0 ||
-        json_object_set_new(time, json_string_value(kid), json_real(e - s)) < 0) {
+        json_array_append_new(time, json_real(e - s)) < 0) {
         printf("Error calculating performance metrics!\n");
         return false;
     }
 
-    if (!json_equal(exc, rep)) {
+    if (!jose_jwk_eql(NULL, exc, rep)) {
         printf("Recovered key doesn't match!\n");
         return false;
     }
@@ -429,6 +434,7 @@ static const struct option opts[] = {
 int
 main(int argc, char *argv[])
 {
+    json_auto_t *perf = NULL;
     json_auto_t *time = NULL;
     json_auto_t *keys = NULL;
     json_auto_t *adv = NULL;
@@ -437,13 +443,15 @@ main(int argc, char *argv[])
     char *body = NULL;
     url_t parts = {};
     size_t sig = 0;
-    size_t rec = 0;
+    size_t exc = 0;
+    double sum = 0;
     double s = 0;
     double e = 0;
     int r = 0;
 
-    time = json_object();
-    if (!time)
+    perf = json_object();
+    time = json_array();
+    if (!perf || !time)
         return NAGIOS_CRIT;
 
     for (int c; (c = getopt_long(argc, argv, "u:", opts, NULL)) >= 0; ) {
@@ -489,7 +497,7 @@ main(int argc, char *argv[])
     }
 
     if (s == 0.0 || e == 0.0 ||
-        json_object_set_new(time, "adv", json_real(e - s)) != 0) {
+        json_object_set_new(perf, "adv", json_real(e - s)) != 0) {
         printf("Error calculating performance metrics!\n");
         free(body);
         return NAGIOS_CRIT;
@@ -511,21 +519,25 @@ main(int argc, char *argv[])
     for (size_t i = 0; i < json_array_size(keys); i++) {
         json_t *jwk = json_array_get(keys, i);
         if (!nagios_recover(con, parts.host, parts.path, jwk,
-                            &sig, &rec, time))
+                            &sig, &exc, time))
             return NAGIOS_CRIT;
     }
 
-    if (rec == 0) {
-        printf("Advertisement contains no recovery keys!\n");
+    if (exc == 0) {
+        printf("Advertisement contains no exchange keys!\n");
         return NAGIOS_CRIT;
     }
 
-    json_object_set_new(time, "nkeys", json_integer(json_array_size(keys)));
-    json_object_set_new(time, "nsigk", json_integer(sig));
-    json_object_set_new(time, "nreck", json_integer(rec));
+    for (size_t i = 0; i < json_array_size(time); i++)
+        sum += json_real_value(json_array_get(time, i));
+
+    json_object_set_new(perf, "exc", json_real(sum / json_array_size(time)));
+    json_object_set_new(perf, "nkeys", json_integer(json_array_size(keys)));
+    json_object_set_new(perf, "nsigk", json_integer(sig));
+    json_object_set_new(perf, "nexck", json_integer(exc));
 
     printf("OK|");
-    dump_perf(time);
+    dump_perf(perf);
     printf("\n");
     return NAGIOS_OK;
 

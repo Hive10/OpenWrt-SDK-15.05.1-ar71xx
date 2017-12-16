@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 # vim: set tabstop=8 shiftwidth=4 softtabstop=4 expandtab smarttab colorcolumn=80:
 #
 # Copyright (c) 2016 Red Hat, Inc.
@@ -18,30 +18,19 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-srcdir=${srcdir:-.}
-
-function on_exit() {
-    if [ "$PID" ]; then kill $PID; wait $PID || true; fi
-    [ -d "$TMP" ] && rm -rf $TMP
-}
-
-trap 'on_exit' EXIT
 trap 'exit' ERR
 
-export TMP=`mktemp -d`
-mkdir -p $TMP/db
-mkdir -p $TMP/cache
+if [ $# -ne 1 -a $# -ne 3 ] || [ ! -d "$1" ]; then
+    echo "Usage: $0 <jwkdir> [<sig> <exc>]" >&2
+    exit 1
+fi
 
-# Generate the server keys
-jose gen -t '{"alg": "ES256"}' -o $TMP/db/sig.jwk
-jose gen -t '{"kty": "EC", "crv": "P-256", "key_ops": ["deriveKey"] }' -o $TMP/db/exc.jwk
-${srcdir}/tangd-update $TMP/db $TMP/cache
+[ $# -eq 3 ] && sig=$2 && exc=$3
 
-# Start the server
-port=`shuf -i 1024-65536 -n 1`
-@SD_ACTIVATE@ -l 127.0.0.1:$port -a $VALGRIND ./tangd $TMP/cache &
-export PID=$!
+jwe=`jose jwk gen -i '{"alg":"ES512"}'`
+[ -z "$sig" ] && sig=`echo "$jwe" | jose jwk thp -i-`
+echo "$jwe" > $1/$sig.jwk
 
-sleep 0.5
-
-./tang -u http://127.0.0.1:$port
+jwe=`jose jwk gen -i '{"alg":"ECMR"}'`
+[ -z "$exc" ] && exc=`echo "$jwe" | jose jwk thp -i-`
+echo "$jwe" > $1/$exc.jwk

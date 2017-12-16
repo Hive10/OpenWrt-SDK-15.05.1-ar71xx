@@ -18,7 +18,7 @@
  */
 
 #include "http.h"
-// #include <endian.h>
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <limits.h>
@@ -59,8 +59,6 @@ adv(enum http_method method, const char *path, const char *body,
         thp = strndup(&path[matches[1].rm_so], size);
         if (!thp)
             return http_reply(HTTP_STATUS_INTERNAL_SERVER_ERROR, NULL);
-        if (strlen(thp) < 32)
-            return http_reply(HTTP_STATUS_NOT_FOUND, NULL);
     }
 
     if (snprintf(filename, sizeof(filename),
@@ -99,17 +97,33 @@ rec(enum http_method method, const char *path, const char *body,
     json_auto_t *jwk = NULL;
     json_auto_t *req = NULL;
     json_auto_t *rep = NULL;
+    const char *alg = NULL;
     const char *kty = NULL;
+    const char *d = NULL;
+
+    /*
+     * Parse and validate the request JWK
+     */
 
     req = json_loads(body, 0, NULL);
     if (!req)
         return http_reply(HTTP_STATUS_BAD_REQUEST, NULL);
 
-    if (json_unpack(req, "{s:s}", "kty", &kty) != 0)
+    if (!jose_jwk_prm(NULL, req, false, "deriveKey"))
+        return http_reply(HTTP_STATUS_FORBIDDEN, NULL);
+
+    if (json_unpack(req, "{s:s,s?s}", "kty", &kty, "alg", &alg) < 0)
         return http_reply(HTTP_STATUS_BAD_REQUEST, NULL);
 
     if (strcmp(kty, "EC") != 0)
         return http_reply(HTTP_STATUS_BAD_REQUEST, NULL);
+
+    if (alg && strcmp(alg, "ECMR") != 0)
+        return http_reply(HTTP_STATUS_BAD_REQUEST, NULL);
+
+    /*
+     * Parse and validate the server-side JWK
+     */
 
     thp = strndup(&path[matches[1].rm_so], size);
     if (!thp)
@@ -122,12 +136,27 @@ rec(enum http_method method, const char *path, const char *body,
     if (!jwk)
         return http_reply(HTTP_STATUS_NOT_FOUND, NULL);
 
-    if (!jose_jwk_allowed(jwk, true, "deriveKey"))
+    if (!jose_jwk_prm(NULL, jwk, true, "deriveKey"))
         return http_reply(HTTP_STATUS_FORBIDDEN, NULL);
 
-    rep = jose_jwk_exchange(jwk, req);
+    if (json_unpack(jwk, "{s:s,s?s}", "d", &d, "alg", &alg) < 0)
+        return http_reply(HTTP_STATUS_FORBIDDEN, NULL);
+
+    if (alg && strcmp(alg, "ECMR") != 0)
+        return http_reply(HTTP_STATUS_FORBIDDEN, NULL);
+
+    /*
+     * Perform the exchange and return
+     */
+    rep = jose_jwk_exc(NULL, jwk, req);
     if (!rep)
         return http_reply(HTTP_STATUS_BAD_REQUEST, NULL);
+
+    if (json_object_set_new(rep, "alg", json_string("ECMR")) < 0)
+        return http_reply(HTTP_STATUS_INTERNAL_SERVER_ERROR, NULL);
+
+    if (json_object_set_new(rep, "key_ops", json_pack("[s]", "deriveKey")) < 0)
+        return http_reply(HTTP_STATUS_INTERNAL_SERVER_ERROR, NULL);
 
     enc = json_dumps(rep, JSON_SORT_KEYS | JSON_COMPACT);
     if (!enc)
@@ -169,27 +198,6 @@ main(int argc, char *argv[])
     }
 
     if (!S_ISDIR(st.st_mode)) {
-        // switch (st.st_mode & S_IFMT) {
-        //     case S_IFBLK:  printf("block device\n");            break;
-        //     case S_IFCHR:  printf("character device\n");        break;
-        //     case S_IFDIR:  printf("directory\n");               break;
-        //     case S_IFIFO:  printf("FIFO/pipe\n");               break;
-        //     case S_IFLNK:  printf("symlink\n");                 break;
-        //     case S_IFREG:  printf("regular file\n");            break;
-        //     case S_IFSOCK: printf("socket\n");                  break;
-        //     default:       printf("unknown?\n");                break;
-        // }
-        // printf("I-node number:            %ld\n", (long) st.st_ino);
-        //
-        // printf("Mode:                     %lo (octal)\n",
-        //     (unsigned long) st.st_mode);
-        //
-        // printf("Link count:               %ld\n", (long) st.st_nlink);
-        // printf("Ownership:                UID=%ld   GID=%ld\n",(long) st.st_uid, (long) st.st_gid);
-        //
-        // printf("Preferred I/O block size: %ld bytes\n",(long) st.st_blksize);
-        // printf("File size:                %lld bytes\n",(long long) st.st_size);
-        // printf("Blocks allocated:         %lld\n",(long long) st.st_blocks);
         fprintf(stderr, "Path is not a directory: %s\n", argv[1]);
         return EXIT_FAILURE;
     }
