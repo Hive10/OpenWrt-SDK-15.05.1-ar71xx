@@ -37,13 +37,10 @@ define Package/jose/description
 endef
 
 CFLAGS += -fhonour-copts
-TARGET_CFLAGS += -std=gnu99 $(FPIC)
+TARGET_CFLAGS += $(FPIC) -std=gnu99
 TARGET_LDFLAGS += -Wl,-rpath-link=$(1)/usr/lib
 
-MAKE_FLAGS += LD="$(TARGET_CC) -o"
-
 define Build/Configure
-	cd $(PKG_BUILD_DIR);
 	$(call Build/Configure/Default)
 endef
 
@@ -52,8 +49,8 @@ define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/lib$(PKG_NAME).so* 			$(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/lib$(PKG_NAME)-openssl.so* 		$(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/lib$(PKG_NAME)-zlib.so* 		$(1)/usr/lib
-	$(INSTALL_DIR)	$(1)/usr/include/$(PKG_NAME)/
-	$(CP) $(PKG_INSTALL_DIR)/usr/include/$(PKG_NAME)/*.h			$(1)/usr/include/$(PKG_NAME)/
+	$(INSTALL_DIR)	$(1)/usr/include/$(PKG_NAME)
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/$(PKG_NAME)/*.h			$(1)/usr/include/$(PKG_NAME)
 	$(INSTALL_DIR)	$(1)/usr/lib/pkgconfig
 	$(CP) $(PKG_BUILD_DIR)/*.pc						$(1)/usr/lib/pkgconfig
 endef
